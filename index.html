@@ -1,181 +1,318 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mateus - Portfólio de Análise de Dados</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <title>Mateus Valverde - Portfólio de Análise de Dados</title>
+    
+    <!-- Tailwind CSS (para layout e responsividade) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 
-    <header>
-        <div class="container">
-            <h1>Mateus Valverde</h1>
-            <nav>
-                <ul>
-                    <li><a href="#sobre">Sobre Mim</a></li>
-                    <li><a href="#projetos">Projetos</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
+    <!-- AOS (Animate on Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body class="antialiased">
+
+    <!-- ===== Header ===== -->
+    <header class="header-main bg-card-transparent sticky top-0 z-50 border-b border-custom">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-highlight">Mateus Valverde</h1>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#sobre" class="link-interaction">Sobre Mim</a>
+                <a href="#projetos" class="link-interaction">Projetos</a>
+                <a href="#contato" class="link-interaction">Contato</a>
             </nav>
+            <!-- Menu Hamburguer para Mobile -->
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+        <!-- Navegação Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#sobre" class="block text-center py-2 text-secondary hover:bg-slate-700">Sobre Mim</a>
+            <a href="#projetos" class="block text-center py-2 text-secondary hover:bg-slate-700">Projetos</a>
+            <a href="#contato" class="block text-center py-2 text-secondary hover:bg-slate-700">Contato</a>
         </div>
     </header>
 
-<section id="hero">
-    <div class="container">
-        <h2>Bem-vindo ao meu portfólio de Análise de Dados</h2>
-        <p>Sou Mateus Valverde, apaixonado por transformar dados em decisões inteligentes. Neste espaço, compartilho meus projetos práticos com Python, SQL, Power BI e outras ferramentas que utilizo para resolver problemas reais, identificar oportunidades e gerar valor estratégico para negócios.</p>
-        <p>Explore os dashboards, análises e soluções desenvolvidas — e veja como dados podem contar histórias poderosas.</p>
-        <a href="#projetos" class="btn">Veja meus projetos</a>
-    </div>
-</section>
-
-
-    <section id="sobre">
-        <div class="container">
-            <img src="img/sua-foto.jpg" alt="Sua Foto de Perfil" class="profile-pic">
-            <h3>Sobre Mim</h3>
-            <p>Sou um profissional de Tecnologia em transição para a área de Dados, com foco em transformar informações em valor estratégico para os negócios. Atualmente, atuo como suporte de TI no Coren-RJ, e venho desenvolvendo projetos de análise de dados para aprimorar minhas habilidades técnicas e gerar insights relevantes.</p>
-            <h4>Minhas Ferramentas:</h4>
-            <div class="skills">
-                <span>Power BI</span>
-                <span>SQL</span>
-                <span>Python</span>
-                <span>Excel</span>
-                <span>Power BI</span>
-                <span>DAX</span>
-                <span>R</span>
+    <main>
+        <!-- ===== Seção Hero ===== -->
+        <section id="hero" class="hero-gradient min-h-[80vh] flex items-center justify-center text-center py-20 px-6">
+            <div class="max-w-3xl">
+                <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-4" data-aos="fade-down">Transformando Dados em Decisões</h2>
+                <p class="text-xl md:text-2xl text-highlight mb-8 font-semibold" data-aos="fade-down" data-aos-delay="200">
+                    <span id="typed-text"></span>
+                </p>
+                <p class="text-lg text-secondary max-w-2xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="400">
+                    Bem-vindo ao meu portfólio! Explore como uso tecnologia para resolver problemas, contar histórias com dados e apoiar a tomada de decisão estratégica.
+                </p>
+                <a href="#projetos" class="button-main py-3 px-8 text-lg" data-aos="fade-up" data-aos-delay="600">
+                    Veja meus projetos
+                </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-<section id="projetos">
-    <div class="container">
-        <h3>Projetos Recentes</h3>
-
-        <div class="carousel-container">
-            <div class="carousel">
-                <div class="carousel-track">
-                    <div class="project-card">
-                        <img src="img/pj1.png" alt="Thumbnail do Projeto 1">
-                        <h4>Análise de Vendas</h4>
-                        <p>Dashboard interativo no Power BI para análise de performance de vendas e KPIs de produtos.</p>
-                        <a href="projetos/analise-vendas.html" class="btn-secondary">Ver detalhes</a>
+        <!-- ===== Seção Sobre Mim ===== -->
+        <section id="sobre" class="py-24 bg-card">
+            <div class="container mx-auto px-6">
+                <h3 class="text-3xl font-bold text-center mb-12 text-highlight" data-aos="fade-up">Sobre Mim</h3>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/3 flex justify-center" data-aos="fade-right">
+                        <img src="https://placehold.co/300x300/1F2937/A78BFA?text=MV" alt="Foto de Perfil de Mateus Valverde" class="w-60 h-60 rounded-full object-cover border-4 border-highlight shadow-2xl">
                     </div>
-                    <div class="project-card">
-                        <img src="https://placehold.co/600x400/1F2937/38BDF8?text=Projeto+2" alt="Thumbnail do Projeto 2">
-                        <h4>Otimização de Estoque (Logística)</h4>
-                        <p>Análise preditiva em Python e visualização no Power BI para otimização dos níveis de estoque.</p>
-                        <a href="#" class="btn-secondary">Ver detalhes</a>
-                    </div>
-                    <div class="project-card">
-                        <img src="https://placehold.co/600x400/1F2937/38BDF8?text=Projeto+3" alt="Thumbnail do Projeto 3">
-                        <h4>Análise de Churn (SaaS)</h4>
-                        <p>Estudo sobre a evasão de clientes utilizando SQL para consulta e Power BI para visualização dos motivos.</p>
-                        <a href="#" class="btn-secondary">Ver detalhes</a>
-                    </div>
-                    <div class="project-card">
-                        <img src="https://placehold.co/600x400/1F2937/38BDF8?text=Projeto+4" alt="Thumbnail do Projeto 4">
-                        <h4>Performance de Marketing Digital</h4>
-                        <p>Criação de um dashboard para acompanhar o ROI, CPC e outras métricas de campanhas de marketing.</p>
-                        <a href="#" class="btn-secondary">Ver detalhes</a>
-                    </div>
-                    <div class="project-card">
-                        <img src="https://placehold.co/600x400/1F2937/38BDF8?text=Projeto+5" alt="Thumbnail do Projeto 5">
-                        <h4>Análise de Sentimento (Redes Sociais)</h4>
-                        <p>Projeto em Python para coletar e analisar o sentimento de comentários sobre uma marca.</p>
-                        <a href="#" class="btn-secondary">Ver detalhes</a>
+                    <div class="md:w-2/3 text-lg" data-aos="fade-left">
+                        <p class="text-secondary mb-6">
+                            Sou um profissional de Tecnologia em transição para a área de Dados, com foco em transformar informações em valor estratégico para os negócios. Atualmente, atuo como suporte de TI no Coren-RJ, e venho desenvolvendo projetos de análise de dados que unem Python, SQL e Power BI para aprimorar minhas habilidades técnicas e gerar insights relevantes.
+                        </p>
+                        <h4 class="text-xl font-bold text-white mb-4">Minhas Ferramentas:</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">Power BI</span>
+                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">SQL</span>
+                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">Python</span>
+                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">Excel</span>
+                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">DAX</span>
+                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">R</span>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <button class="carousel-button prev is-hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-            </button>
-            <button class="carousel-button next">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-            </button>
-        </div>
-        </div>
-</section>
+        <!-- ===== Seção Projetos ===== -->
+        <section id="projetos" class="py-24">
+            <div class="container mx-auto px-6">
+                <h3 class="text-3xl font-bold text-center mb-12 text-highlight" data-aos="fade-up">Projetos Recentes</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="project-card rounded-lg overflow-hidden cursor-pointer" data-aos="fade-up" data-project-id="vendas">
+                        <img src="img/pj1.png" alt="Thumbnail do Projeto Análise de Vendas" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-2">Análise de Vendas</h4>
+                            <p class="text-secondary mb-4">Dashboard interativo no Power BI para análise de performance de vendas e KPIs.</p>
+                            <span class="font-semibold text-highlight">Ver detalhes &rarr;</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card rounded-lg overflow-hidden cursor-pointer" data-aos="fade-up" data-aos-delay="100" data-project-id="logistica">
+                        <img src="https://placehold.co/600x400/111827/60A5FA?text=Otimização+de+Estoque" alt="Thumbnail do Projeto Logística" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-2">Otimização de Estoque</h4>
+                            <p class="text-secondary mb-4">Análise preditiva em Python e visualização no Power BI para otimização do estoque.</p>
+                            <span class="font-semibold text-highlight">Ver detalhes &rarr;</span>
+                        </div>
+                    </div>
 
-    <section id="contato">
-        <div class="container">
-            <h3>Vamos Conversar!</h3>
-            <p>Estou disponível para novas oportunidades e colaborações. Entre em contato:</p>
-            <ul>
-                <li>Email: <a href="mailto:mateusphilipe.valverde@hotmail.com">mateusphilipe.valverde@hotmail.com</a></li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/mateus-valverde/" target="_blank">https://www.linkedin.com/in/mateus-valverde</a></li>
-            </ul>
-        </div>
-    </section>
+                    <div class="project-card rounded-lg overflow-hidden cursor-pointer" data-aos="fade-up" data-aos-delay="200" data-project-id="churn">
+                        <img src="https://placehold.co/600x400/111827/FBBF24?text=Análise+de+Churn" alt="Thumbnail do Projeto Churn" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-2">Análise de Churn (SaaS)</h4>
+                            <p class="text-secondary mb-4">Estudo sobre a evasão de clientes utilizando SQL para consulta e Power BI para visualização.</p>
+                            <span class="font-semibold text-highlight">Ver detalhes &rarr;</span>
+                        </div>
+                    </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Seu Nome. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Seção Contato ===== -->
+        <section id="contato" class="py-24 bg-card">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-3xl font-bold text-highlight mb-4" data-aos="fade-up">Vamos Conversar!</h3>
+                <p class="text-lg text-secondary max-w-2xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="100">
+                    Estou sempre aberto a novas oportunidades e colaborações. Entre em contato.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8" data-aos="fade-up" data-aos-delay="200">
+                    <button id="copy-email-button" data-email="mateusphilipe.valverde@hotmail.com" class="link-interaction flex items-center gap-3 text-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <span id="email-text">mateusphilipe.valverde@hotmail.com</span>
+                    </button>
+                    <a href="https://www.linkedin.com/in/mateus-valverde/" target="_blank" rel="noopener noreferrer" class="link-interaction flex items-center gap-3 text-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="bg-main border-t border-custom">
+        <div class="container mx-auto px-6 py-6 text-center text-secondary">
+            <div id="theme-switcher" class="flex justify-center items-center gap-4 mb-4">
+                <button title="Nebula Púrpura" data-theme="theme-purpura" class="theme-switcher-button active" style="background-color: #8b5cf6;"></button>
+                <button title="Abismo Esmeralda" data-theme="theme-esmeralda" class="theme-switcher-button" style="background-color: #34d399;"></button>
+                <button title="Sol Carmesim" data-theme="theme-carmesim" class="theme-switcher-button" style="background-color: #ef4444;"></button>
+                <button title="Oceano Cobalto" data-theme="theme-cobalto" class="theme-switcher-button" style="background-color: #3b82f6;"></button>
+                <button title="Monocromático Nórdico" data-theme="theme-nordico" class="theme-switcher-button" style="background-color: #D1D5DB;"></button>
+            </div>
+            <p>&copy; <span id="current-year"></span> Mateus Valverde. Todos os direitos reservados.</p>
         </div>
     </footer>
-... <script>
-        // Seleciona os elementos do carrossel
-        const track = document.querySelector('.carousel-track');
-        const slides = Array.from(track.children);
-        const nextButton = document.querySelector('.carousel-button.next');
-        const prevButton = document.querySelector('.carousel-button.prev');
-        const carousel = document.querySelector('.carousel');
 
-        // Pega a largura de um slide. getBoundingClientRect é mais preciso
-        const slideWidth = slides[0].getBoundingClientRect().width;
 
-        // Função para mover os slides
-        const moveToSlide = (currentSlide, targetSlide) => {
-            track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
-            currentSlide.classList.remove('current-slide');
-            targetSlide.classList.add('current-slide');
-        }
+    <!-- ===== Modal ===== -->
+    <div id="project-modal" class="modal modal-overlay invisible opacity-0 fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div id="modal-content" class="modal-content w-full max-w-4xl max-h-[90vh] rounded-lg overflow-y-auto transform scale-95"></div>
+    </div>
 
-        // Função para atualizar a visibilidade dos botões
-        const updateButtons = (targetIndex) => {
-            if (targetIndex === 0) {
-                prevButton.classList.add('is-hidden');
-                nextButton.classList.remove('is-hidden');
-            } else if (targetIndex === slides.length - 1) {
-                prevButton.classList.remove('is-hidden');
-                nextButton.classList.add('is-hidden');
-            } else {
-                prevButton.classList.remove('is-hidden');
-                nextButton.classList.remove('is-hidden');
+
+    <!-- ===== Scripts ===== -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+           const projectDetails = {
+            vendas: {
+                title: 'Dashboard de Vendas – Loja Fictícia',
+                image: "img/pj1.png",
+                description: 'Este projeto apresenta um dashboard interativo de vendas desenvolvido com o objetivo de analisar o desempenho de uma loja fictícia. A visualização foi construída para facilitar a tomada de decisões estratégicas a partir de indicadores e gráficos dinâmicos.',
+                highlights: [
+                    '<strong>Visão Geral de Vendas:</strong> Identificação dos produtos mais e menos vendidos, possibilitando uma gestão mais eficiente do estoque e o direcionamento de ações promocionais.',
+                    '<strong>Análise Geográfica:</strong> Utilização de um mapa interativo que exibe o desempenho de vendas por continente, facilitando a visualização de regiões com maior potencial de crescimento.',
+                    '<strong>Análise por Marca e Gênero:</strong> Gráficos que mostram o faturamento total por marca e a distribuição de vendas por gênero, apoiando estratégias de marketing direcionadas.',
+                    '<strong>Filtros Dinâmicos:</strong> Aplicação de segmentações por ano, mês e dia, permitindo ao usuário explorar os dados de forma granular e personalizada.'
+                ],
+                tools: ['Power BI'],
+                challenge: 'As bases de dados estavam distribuídas em múltiplos arquivos, incluindo informações de vendas por ano, além de cadastros de clientes, produtos e lojas, o que dificultava a análise consolidada.',
+                solution: 'Foi realizada a limpeza e padronização dos dados, seguida da integração das bases em um modelo de dados relacional no Power BI. Isso permitiu a criação de um dashboard coeso, com visualizações interativas e responsivas para extração de insights práticos.'
+            },
+            logistica: {
+                title: 'Otimização de Estoque (Logística)',
+                image: 'https://placehold.co/1280x720/111827/60A5FA?text=Análise+Preditiva+de+Estoque',
+                description: 'Análise preditiva em Python para prever a demanda futura e visualização dos resultados em um dashboard no Power BI para otimizar os níveis de estoque e reduzir custos operacionais.',
+                highlights: [
+                    '<strong>Previsão de Demanda:</strong> Utilização de modelos de séries temporais (como ARIMA) em Python para prever vendas futuras.',
+                    '<strong>Cálculo de Estoque de Segurança:</strong> Definição de níveis ótimos de estoque de segurança para evitar rupturas.',
+                    '<strong>Dashboard de Controle:</strong> Painel no Power BI que permite aos gestores monitorar os KPIs de estoque em tempo real.',
+                    '<strong>Redução de Custos:</strong> O projeto demonstrou um potencial de redução de 15% nos custos de manutenção de estoque.'
+                ],
+                tools: ['Python', 'Pandas', 'Scikit-learn', 'Power BI'],
+                challenge: 'A empresa enfrentava problemas de excesso de estoque para alguns produtos e falta para outros, gerando custos elevados e perda de vendas.',
+                solution: 'Um script em Python foi desenvolvido para automatizar a coleta de dados, treinamento do modelo preditivo e cálculo do estoque ideal. Os resultados foram integrados ao Power BI, fornecendo uma visão clara e acionável para a equipe de logística.'
+            },
+            churn: {
+                title: 'Análise de Churn (SaaS)',
+                image: 'https://placehold.co/1280x720/111827/FBBF24?text=Análise+de+Evasão+de+Clientes',
+                description: 'Estudo aprofundado sobre os fatores que levam à evasão de clientes (churn) em uma empresa de Software as a Service (SaaS), utilizando SQL para extração e manipulação de dados e Power BI para visualização.',
+                highlights: [
+                    '<strong>Identificação de Padrões:</strong> Análise de dados de uso da plataforma para identificar comportamentos comuns entre clientes que cancelaram o serviço.',
+                    '<strong>Análise de Cohort:</strong> Visualização da taxa de retenção de clientes ao longo do tempo.',
+                    '<strong>Motivos de Churn:</strong> Criação de um dashboard que segmenta os principais motivos de cancelamento, apontados em pesquisas de saída.',
+                    '<strong>Insights para Retenção:</strong> O estudo forneceu insights valiosos para a criação de estratégias proativas de retenção de clientes.'
+                ],
+                tools: ['SQL', 'Power BI'],
+                challenge: 'A empresa possuía uma grande quantidade de dados de clientes, mas não conseguia extrair informações claras sobre os motivos da evasão.',
+                solution: 'Foram utilizadas consultas SQL complexas para cruzar dados de diferentes tabelas (uso, assinaturas, suporte). O resultado foi consolidado e apresentado em um dashboard no Power BI, que revelou os principais "gargalos" na jornada do cliente que levavam ao churn.'
             }
-        }
+        };
 
-        // Organiza os slides um ao lado do outro
-        slides.forEach((slide, index) => {
-            slide.style.left = slideWidth * index + 'px';
-        });
+            AOS.init({ duration: 700, once: true, offset: 50 });
 
-        // Marca o primeiro slide como o atual
-        track.children[0].classList.add('current-slide');
+            new Typed('#typed-text', {
+                strings: ['Analista de Dados', 'Business Intelligence', 'Apaixonado por Tecnologia'],
+                typeSpeed: 50, backSpeed: 25, backDelay: 2000, loop: true, smartBackspace: true
+            });
 
-        // Quando eu clicar no botão da direita, mover para o próximo slide
-        nextButton.addEventListener('click', e => {
-            const currentSlide = track.querySelector('.current-slide');
-            const nextSlide = currentSlide.nextElementSibling;
-            const nextIndex = slides.findIndex(slide => slide === nextSlide);
+            document.getElementById('current-year').textContent = new Date().getFullYear();
             
-            moveToSlide(currentSlide, nextSlide);
-            updateButtons(nextIndex);
-        });
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            mobileMenu.addEventListener('click', (e) => { if(e.target.tagName === 'A') mobileMenu.classList.add('hidden') });
 
-        // Quando eu clicar no botão da esquerda, mover para o slide anterior
-        prevButton.addEventListener('click', e => {
-            const currentSlide = track.querySelector('.current-slide');
-            const prevSlide = currentSlide.previousElementSibling;
-            const prevIndex = slides.findIndex(slide => slide === prevSlide);
+            const modal = document.getElementById('project-modal');
+            const modalContent = document.getElementById('modal-content');
             
-            moveToSlide(currentSlide, prevSlide);
-            updateButtons(prevIndex);
-        });
+            function openModal(details) {
+                modalContent.innerHTML = `
+                    <div class="p-4 sm:p-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <h1 class="text-2xl sm:text-3xl font-bold text-highlight pr-4">${details.title}</h1>
+                            <button id="close-modal-button" class="text-3xl font-light text-secondary hover:text-white">&times;</button>
+                        </div>
+                        <p class="text-secondary mb-6">${details.description}</p>
+                        <img src="${details.image}" alt="Imagem do projeto" class="w-full rounded-lg mb-8 border-2 border-custom">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h2 class="text-xl font-bold text-white border-l-4 border-highlight pl-4 mb-4">Destaques</h2>
+                                <ul class="list-disc list-inside text-secondary space-y-2">${details.highlights.map(i => `<li>${i}</li>`).join('')}</ul>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-bold text-white border-l-4 border-highlight pl-4 mb-4">Ferramentas</h2>
+                                <div class="flex flex-wrap gap-2 mb-6">${details.tools.map(t => `<span class="skill-tag px-3 py-1 text-sm">${t}</span>`).join('')}</div>
+                                <h2 class="text-xl font-bold text-white border-l-4 border-highlight pl-4 mb-4">Desafio e Solução</h2>
+                                <p class="text-secondary"><strong>Desafio:</strong> ${details.challenge}</p>
+                                <p class="text-secondary mt-2"><strong>Solução:</strong> ${details.solution}</p>
+                            </div>
+                        </div>
+                    </div>`;
+                modal.classList.remove('invisible', 'opacity-0');
+                document.body.style.overflow = 'hidden';
+                document.getElementById('close-modal-button').addEventListener('click', closeModal);
+            }
 
+            function closeModal() {
+                modal.classList.add('invisible', 'opacity-0');
+                document.body.style.overflow = 'auto';
+            }
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const details = projectDetails[card.dataset.projectId];
+                    if (details) openModal(details);
+                });
+            });
+
+            modal.addEventListener('click', (e) => { if (e.target === modal) closeModal() });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('invisible')) closeModal() });
+
+            const copyEmailButton = document.getElementById('copy-email-button');
+            const emailTextSpan = document.getElementById('email-text');
+            copyEmailButton.addEventListener('click', () => {
+                const email = copyEmailButton.dataset.email;
+                navigator.clipboard.writeText(email).then(() => {
+                    emailTextSpan.textContent = 'Email copiado!';
+                    emailTextSpan.className = 'text-success';
+                }).catch(err => {
+                    console.error('Falha ao copiar:', err);
+                    emailTextSpan.textContent = 'Erro ao copiar';
+                    emailTextSpan.className = 'text-error';
+                }).finally(() => {
+                    setTimeout(() => {
+                        emailTextSpan.textContent = email;
+                        emailTextSpan.className = '';
+                    }, 2000);
+                });
+            });
+
+            const themeButtons = document.querySelectorAll('.theme-switcher-button');
+            themeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const theme = button.dataset.theme;
+
+                    document.body.className = document.body.className.replace(/theme-\w+/g, '');
+
+                    if (theme !== 'theme-purpura') {
+                        document.body.classList.add(theme);
+                    }
+
+                    document.querySelector('.theme-switcher-button.active').classList.remove('active');
+                    button.classList.add('active');
+                });
+            });
+        });
     </script>
+
 </body>
 </html>
