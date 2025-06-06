@@ -1,0 +1,293 @@
+/* --- GERAL & VARS (MODO NOTURNO: ABISMO TECNOLÓGICO) --- */
+:root {
+    --cor-fundo: #111827;              /* Quase preto azulado */
+    --cor-cards: #1F2937;              /* Azul-marinho escuro para seções */
+    --cor-primaria-destaque: #38BDF8;  /* Ciano vibrante para títulos e links */
+    --cor-secundaria-destaque: #60A5FA;/* Amarelo/Laranja para botões */
+    --cor-texto-principal: #F3F4F6;    /* Branco suave */
+    --cor-texto-secundario: #9CA3AF;   /* Cinza claro */
+    --cor-borda: #374151;              /* Cinza para bordas sutis */
+    --fonte-principal: 'Roboto', sans-serif;
+    --fonte-titulo: 'Montserrat', sans-serif;
+}
+
+/* --- ESTILOS GERAIS CORRIGIDOS --- */
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal); /* <-- CORRIGIDO */
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1100px;
+}
+
+/* --- TÍTULOS CORRIGIDOS --- */
+h1, h2, h3, h4 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-primaria-destaque); /* <-- CORRIGIDO: Usa a cor de destaque */
+}
+
+a {
+    color: var(--cor-primaria-destaque);
+    text-decoration: none;
+}
+
+/* --- CABEÇALHO CORRIGIDO --- */
+header {
+    background-color: var(--cor-cards); /* <-- CORRIGIDO: Fundo mais escuro */
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: var(--cor-secundaria-destaque); /* Use a cor secundária no hover */
+}
+
+/* --- SEÇÃO HERO --- */
+#hero {
+    /* Removido o background-image para um visual mais limpo, mas você pode adicionar de volta se quiser */
+    background-color: var(--cor-fundo);
+    text-align: center;
+    padding: 80px 0;
+}
+
+#hero h2 {
+    font-size: 3rem;
+    color: #fff; /* Mantém o branco aqui para máximo destaque */
+    margin-bottom: 1rem;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    color: var(--cor-texto-secundario); /* Texto secundário para descrição */
+}
+
+.btn {
+    background-color: var(--cor-primaria-destaque);
+    color: var(--cor-fundo); /* Texto escuro no botão claro */
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+}
+
+/* --- SEÇÕES PADRÃO CORRIGIDAS --- */
+section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+/* Alterna a cor de fundo das seções para criar contraste */
+section:nth-child(even) {
+    background-color: var(--cor-cards); /* <-- CORRIGIDO: Usa a cor de cards */
+}
+
+/* --- SOBRE MIM CORRIGIDO --- */
+#sobre .profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--cor-primaria-destaque); /* Borda com cor de destaque */
+    margin-bottom: 1.5rem;
+}
+
+#sobre p, #contato p {
+    color: var(--cor-texto-secundario); /* Deixa o texto de parágrafo mais suave */
+}
+
+.skills span {
+    display: inline-block;
+    background-color: var(--cor-cards);
+    color: var(--cor-primaria-destaque);
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid var(--cor-primaria-destaque);
+}
+
+/* --- PROJETOS CORRIGIDO --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background-color: var(--cor-cards); /* Fundo dos cards */
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    border-color: var(--cor-primaria-destaque);
+}
+
+.project-card img {
+    width: 100%;
+    height: 500px; 
+    object-fit: contain;
+    display: block;
+}
+
+.project-card h4, .project-card p {
+    padding: 0 20px;
+}
+
+.project-card h4 {
+    margin-top: 20px;
+}
+
+.project-card p {
+    color: var(--cor-texto-secundario);
+}
+
+.project-card a {
+    display: inline-block;
+    margin: 15px 20px 20px 20px;
+    font-weight: bold;
+}
+
+/* --- CONTATO E RODAPÉ CORRIGIDOS --- */
+#contato ul {
+    list-style: none;
+    padding: 0;
+}
+
+#contato li {
+    margin: 10px 0;
+    color: var(--cor-texto-secundario);
+}
+
+#contato li a {
+    font-weight: bold;
+}
+
+footer {
+    background-color: var(--cor-cards);
+    color: var(--cor-texto-secundario);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid var(--cor-borda);
+}
+
+/* --- CARROSSEL DE PROJETOS --- */
+.carousel-container {
+    position: relative;
+    margin-top: 2rem;
+    max-width: 800px; /* Define a largura máxima do carrossel */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden; /* A mágica acontece aqui, escondendo os outros slides */
+    border-radius: 10px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Animação suave da transição */
+}
+
+/* Ajusta o card do projeto para o carrossel */
+.carousel .project-card {
+    flex: 0 0 100%; /* Cada card ocupa 100% da largura do contêiner */
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+}
+
+/* Estilo dos botões de navegação */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(31, 41, 55, 0.7); /* Cor de fundo com transparência */
+    border: 1px solid var(--cor-borda);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.carousel-button:hover {
+    background: var(--cor-cards);
+}
+
+.carousel-button svg {
+    width: 36px;
+    height: 36px;
+    fill: var(--cor-texto-principal);
+}
+
+.carousel-button.prev {
+    left: -50px; /* Metade da largura para ficar centralizado na borda */
+}
+
+.carousel-button.next {
+    right: -50px;
+}
+
+/* Classe para esconder os botões quando não forem necessários */
+.is-hidden {
+    display: none;
+}

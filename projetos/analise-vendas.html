@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Projeto: Análise de Vendas</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para a página de detalhes */
+            .project-main-image {
+        display: block;
+        width: 100%;
+        max-width: 1280px; /* Define uma largura máxima para a imagem */
+        margin: 2rem auto; /* Centraliza a imagem horizontalmente */
+        border-radius: 8px;
+        border: 1px solid var(--cor-borda);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+        .project-detail-header {
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 1px solid var(--cor-borda);
+        }
+        .project-detail-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        .project-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .project-intro h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .project-intro p {
+            font-size: 1.1rem;
+            color: var(--cor-texto-secundario);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .iframe-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%; /* Proporção de 16:9 para o Power BI */
+            border-radius: 8px;
+            border: 1px solid var(--cor-borda);
+            margin: 2rem 0;
+        }
+        .iframe-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .project-section {
+            margin-top: 4rem;
+        }
+        .project-section h2 {
+            border-left: 4px solid var(--cor-primaria-destaque);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+          .tools-description {
+        margin-top: 1.5rem; /* <<-- ESTA LINHA CRIA O ESPAÇO. Aumente ou diminua o valor como quiser */
+        line-height: 1.7; /* Melhora a legibilidade do parágrafo */
+        color: var(--cor-texto-secundario); /* Deixa o texto com a cor secundária, mais suave */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="project-detail-header">
+        <a href="../index.html" class="btn">&larr; Voltar ao Portfólio</a>
+    </header>
+
+    <main>
+        <div class="project-detail-container">
+
+            <div class="project-intro">
+                <h1>Dashboard de Vendas – Loja Fictícia</h1>
+                <p>Este projeto apresenta um dashboard interativo de vendas desenvolvido com o objetivo de analisar o desempenho de uma loja fictícia. A visualização foi construída para facilitar a tomada de decisões estratégicas a partir de indicadores e gráficos dinâmicos.</p>
+            </div>
+                <img src="../img/pj1.png" alt="Dashboard de Análise de Vendas" class="project-main-image">
+                </iframe>
+            </div>
+
+            <section class="project-section">
+                <h2>Principais Destaques e Insights</h2>
+                <ul>
+                    <li><strong>Visão Geral de Vendas:</strong> Identificação dos produtos mais e menos vendidos, possibilitando uma gestão mais eficiente do estoque e o direcionamento de ações promocionais.</li>
+                    <li><strong>Análise Geográfica:</strong> Utilização de um mapa interativo que exibe o desempenho de vendas por continente, facilitando a visualização de regiões com maior potencial de crescimento e investimento.</li>
+                    <li><strong>Análise por Marca e Gênero:</strong> Gráficos que mostram o faturamento total por marca e a distribuição de vendas por gênero, apoiando estratégias de marketing direcionadas.</li>
+                    <li><strong>Filtros Dinâmicos:</strong> Aplicação de segmentações por ano, mês e dia, permitindo ao usuário explorar os dados de forma granular e personalizada, com foco no período desejado.</li>
+                </ul>
+            </section>
+
+            <section class="project-section">
+                <h2>Ferramentas Utilizadas</h2>
+                <div class="skills">
+                    <span>Power BI</span>
+                </div>
+                <p class="tools-description">
+                    <strong>Toda a modelagem, limpeza, integração e visualização de dados foi realizada exclusivamente no Power BI.</strong>
+                </p>
+            </section>
+
+             <section class="project-section">
+                <h2>Desafio e Solução</h2>
+                <strong>Desafio:</strong>
+                <p>As bases de dados estavam distribuídas em múltiplos arquivos, incluindo informações de vendas por ano, além de cadastros de clientes, produtos e lojas, o que dificultava a análise consolidada e dinâmica dos dados.</p>
+                <strong>Solução:</strong>
+                <li>Limpeza e padronização dos dados em cada base.</li>
+                <li>Integração das três bases de vendas em uma única tabela consolidada.</li>
+                <li>Criação de relacionamentos com as tabelas de clientes, produtos e lojas.</li>
+                <li>Desenvolvimento de um modelo de dados eficiente, permitindo análises detalhadas com segmentação por período, região, marca e perfil de cliente.</li>
+                <li>Construção de visualizações interativas e responsivas, otimizadas para extração de insights de forma prática.</li>
+                   
+            </section>
+
+        </div>
+    </main>
+
+    <footer style="margin-top: 4rem;">
+        <div class="container">
+            <p>&copy; 2025 MATEUS PHILIPE. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
