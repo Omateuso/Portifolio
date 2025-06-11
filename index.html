@@ -103,10 +103,10 @@
                     </div>
                     
                     <div class="project-card rounded-lg overflow-hidden cursor-pointer" data-aos="fade-up" data-aos-delay="100" data-project-id="precos_imoveis">
-                        <img src="https://placehold.co/600x400/111827/60A5FA?text=Otimização+de+Estoque" alt="Thumbnail do Projeto Logística" class="w-full h-56 object-cover">
+                        <img src="img/pj2.png" alt="Thumbnail do Projeto Imóveis" class="w-full h-56 object-cover">
                         <div class="p-6">
-                            <h4 class="text-xl font-bold text-white mb-2">Otimização de Estoque</h4>
-                            <p class="text-secondary mb-4">Análise preditiva em Python e visualização no Power BI para otimização do estoque.</p>
+                            <h4 class="text-xl font-bold text-white mb-2">Preços de Imóveis</h4>
+                            <p class="text-secondary mb-4">Análise Preditiva e Dashboard de Preços de Imóveis.</p>
                             <span class="font-semibold text-highlight">Ver detalhes &rarr;</span>
                         </div>
                     </div>
@@ -187,20 +187,20 @@
                 challenge: 'As bases de dados estavam distribuídas em múltiplos arquivos, incluindo informações de vendas por ano, além de cadastros de clientes, produtos e lojas, o que dificultava a análise consolidada.',
                 solution: 'Foi realizada a limpeza e padronização dos dados, seguida da integração das bases em um modelo de dados relacional no Power BI. Isso permitiu a criação de um dashboard coeso, com visualizações interativas e responsivas para extração de insights práticos.'
             },
-            precos_imoveis: { 
-                        title: 'Análise Preditiva e Dashboard de Preços de Imóveis',
-                        image: 'img/pj2.png',
-                        description: 'Este projeto envolveu o desenvolvimento de um modelo de Machine Learning para prever preços de imóveis e a criação de um dashboard interativo. O objetivo foi fornecer insights sobre os fatores que influenciam o valor de venda e avaliar o desempenho do modelo preditivo.',
-                        highlights: [
-                            '<strong>Modelagem Preditiva com Random Forest:</strong> Implementação de um modelo Random Forest Regressor em Python para prever o preço de venda de casas, utilizando um conjunto robusto de características dos imóveis.',
-                            '<strong>Pré-processamento e Engenharia de Features:</strong> Realização de limpeza de dados, tratamento de valores ausentes, codificação de variáveis categóricas (One-Hot Encoding) e escalonamento de features para otimizar a performance do modelo.',
-                            '<strong>Análise de Fatores de Preço:</strong> Exploração e visualização das principais características que impactam o valor dos imóveis (ex: área habitável, qualidade geral, localização), incluindo a análise de importância das features do modelo.',
-                            '<strong>Visualização Interativa de Desempenho do Modelo:</strong> Criação de gráficos dinâmicos (como dispersão de previsões vs. reais, histogramas de resíduos e distribuição de preços) no Power BI para avaliar a acurácia e identificar padrões de erro do modelo.',
-                            '<strong>Insights Geográficos e Temporais:</strong> Análise da variação de preços por bairro e ao longo do tempo (ano/mês de venda), utilizando mapas e gráficos de tendência para identificar regiões e períodos de maior valorização.'
-                        ],
-                        tools: ['Python', 'Pandas', 'Scikit-learn', 'Joblib', 'Matplotlib', 'Seaborn'],
-                        challenge: 'A base de dados original apresentava grande volume e complexidade, com múltiplas variáveis categóricas e numéricas, além de uma quantidade significativa de valores ausentes e a necessidade de transformar dados brutos em features relevantes para o modelo.',
-                        solution: 'Foi desenvolvido um pipeline completo de pré-processamento de dados utilizando Scikit-learn, garantindo a consistência e a qualidade das features. Em seguida, um modelo Random Forest foi treinado e avaliado, e um dashboard foi construído para democratizar o acesso aos insights e à performance do modelo.'
+            precos_imoveis: {
+                title: 'Análise Preditiva e Dashboard de Preços de Imóveis',
+                image: 'img/pj2.png', // Certifique-se de que este caminho aponta para a imagem do seu dashboard/conjunto de gráficos
+                description: 'Este projeto envolveu o desenvolvimento de um modelo de Machine Learning para prever preços de imóveis e a criação de um dashboard interativo para análise de dados e avaliação do modelo. O objetivo principal foi fornecer insights acionáveis sobre os fatores que influenciam o valor de venda de propriedades e demonstrar a acurácia do modelo preditivo.',
+                highlights: [
+                    '<strong>Modelagem Preditiva com Random Forest:</strong> Implementação e treinamento de um robusto modelo Random Forest Regressor em Python, capaz de prever o preço de venda de casas com base em um vasto conjunto de características estruturais e locacionais.',
+                    '<strong>Pipeline de Pré-processamento e Engenharia de Features:</strong> Desenvolvimento de um pipeline completo no Scikit-learn para tratamento de dados brutos. Isso incluiu a gestão de valores ausentes (imputação), codificação de variáveis categóricas (One-Hot Encoding) e escalonamento de features numéricas, essenciais para otimizar o desempenho do modelo.',
+                    '<strong>Análise e Visualização de Fatores de Preço:</strong> Exploração aprofundada das variáveis mais impactantes no valor dos imóveis. Utilização de gráficos de importância de features para identificar e quantificar a influência de características como área habitável, qualidade geral e bairro na precificação das propriedades.',
+                    '<strong>Dashboard de Avaliação de Desempenho do Modelo:</strong> Criação de visualizações chave em Matplotlib/Seaborn para avaliar a acurácia do modelo. Inclui gráficos de dispersão de previsões vs. valores reais e análise de resíduos, permitindo a identificação de padrões de erro e a compreensão do comportamento do modelo em diferentes faixas de preço.',
+                    '<strong>Insights Exploratórios Geográficos e de Qualidade:</strong> Análise visual da variação de preços por características qualitativas (ex: qualidade geral do imóvel) e por localização (bairro), revelando como esses atributos fundamentais impactam diretamente o valor de mercado dos imóveis.'
+                ],
+                tools: ['Python', 'Pandas', 'Scikit-learn', 'Joblib', 'Matplotlib', 'Seaborn'], // Lista as ferramentas mais relevantes
+                challenge: 'A base de dados original apresentava grande volume e complexidade, com a presença de múltiplas variáveis categóricas e numéricas, além de uma quantidade significativa de valores ausentes. O desafio foi transformar esses dados brutos em um formato limpo e estruturado, adequado para a construção de um modelo preditivo robusto.',
+                solution: 'Foi desenvolvido um pipeline automatizado de pré-processamento utilizando ColumnTransformer e Pipelines do Scikit-learn, garantindo a consistência e a qualidade das features. Subsequentemente, um modelo Random Forest foi treinado e rigorosamente avaliado, e um conjunto de visualizações foi criado para extrair e apresentar insights claros sobre o mercado imobiliário e a performance do modelo.'
             },
             churn: {
                 title: 'Análise de Churn (SaaS)',
