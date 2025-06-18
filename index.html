@@ -112,7 +112,7 @@
                     </div>
 
                     <div class="project-card rounded-lg overflow-hidden cursor-pointer" data-aos="fade-up" data-aos-delay="200" data-project-id="churn">
-                        <img src="https://placehold.co/600x400/111827/FBBF24?text=Análise+de+Churn" alt="Thumbnail do Projeto Churn" class="w-full h-56 object-cover">
+                        <img src="img/pj3-1.png" alt="Thumbnail do Projeto Churn" class="w-full h-56 object-cover">
                         <div class="p-6">
                             <h4 class="text-xl font-bold text-white mb-2">Análise de Churn (SaaS)</h4>
                             <p class="text-secondary mb-4">Estudo sobre a evasão de clientes utilizando SQL para consulta e Power BI para visualização.</p>
@@ -189,7 +189,7 @@
             },
             precos_imoveis: {
                 title: 'Análise Preditiva e Dashboard de Preços de Imóveis',
-                image: 'img/pj2.png', // Certifique-se de que este caminho aponta para a imagem do seu dashboard/conjunto de gráficos
+                image: 'img/pj2.png',
                 description: 'Este projeto envolveu o desenvolvimento de um modelo de Machine Learning para prever preços de imóveis e a criação de um dashboard interativo para análise de dados e avaliação do modelo. O objetivo principal foi fornecer insights acionáveis sobre os fatores que influenciam o valor de venda de propriedades e demonstrar a acurácia do modelo preditivo.',
                 highlights: [
                     '<strong>Modelagem Preditiva com Random Forest:</strong> Implementação e treinamento de um robusto modelo Random Forest Regressor em Python, capaz de prever o preço de venda de casas com base em um vasto conjunto de características estruturais e locacionais.',
@@ -198,23 +198,25 @@
                     '<strong>Dashboard de Avaliação de Desempenho do Modelo:</strong> Criação de visualizações chave em Matplotlib/Seaborn para avaliar a acurácia do modelo. Inclui gráficos de dispersão de previsões vs. valores reais e análise de resíduos, permitindo a identificação de padrões de erro e a compreensão do comportamento do modelo em diferentes faixas de preço.',
                     '<strong>Insights Exploratórios Geográficos e de Qualidade:</strong> Análise visual da variação de preços por características qualitativas (ex: qualidade geral do imóvel) e por localização (bairro), revelando como esses atributos fundamentais impactam diretamente o valor de mercado dos imóveis.'
                 ],
-                tools: ['Python', 'Pandas', 'Scikit-learn', 'Joblib', 'Matplotlib', 'Seaborn'], // Lista as ferramentas mais relevantes
+                tools: ['Python', 'Pandas', 'Scikit-learn', 'Joblib', 'Matplotlib', 'Seaborn'],
                 challenge: 'A base de dados original apresentava grande volume e complexidade, com a presença de múltiplas variáveis categóricas e numéricas, além de uma quantidade significativa de valores ausentes. O desafio foi transformar esses dados brutos em um formato limpo e estruturado, adequado para a construção de um modelo preditivo robusto.',
                 solution: 'Foi desenvolvido um pipeline automatizado de pré-processamento utilizando ColumnTransformer e Pipelines do Scikit-learn, garantindo a consistência e a qualidade das features. Subsequentemente, um modelo Random Forest foi treinado e rigorosamente avaliado, e um conjunto de visualizações foi criado para extrair e apresentar insights claros sobre o mercado imobiliário e a performance do modelo.'
             },
+
             churn: {
-                title: 'Análise de Churn (SaaS)',
-                image: 'https://placehold.co/1280x720/111827/FBBF24?text=Análise+de+Evasão+de+Clientes',
-                description: 'Estudo aprofundado sobre os fatores que levam à evasão de clientes (churn) em uma empresa de Software as a Service (SaaS), utilizando SQL para extração e manipulação de dados e Power BI para visualização.',
+                title: 'Análise de Churn em Empresa de Telecomunicações',
+                image: 'img/pj3-1.png', 
+                description: 'Estudo aprofundado sobre os fatores que levam à evasão de clientes (churn) em uma empresa de telecomunicações, utilizando SQL para tratamento e análise de dados, e Power BI para visualização interativa dos resultados.', 
                 highlights: [
-                    '<strong>Identificação de Padrões:</strong> Análise de dados de uso da plataforma para identificar comportamentos comuns entre clientes que cancelaram o serviço.',
-                    '<strong>Análise de Cohort:</strong> Visualização da taxa de retenção de clientes ao longo do tempo.',
-                    '<strong>Motivos de Churn:</strong> Criação de um dashboard que segmenta os principais motivos de cancelamento, apontados em pesquisas de saída.',
-                    '<strong>Insights para Retenção:</strong> O estudo forneceu insights valiosos para a criação de estratégias proativas de retenção de clientes.'
+                    '<strong>Limpeza e Transformação de Dados em SQL:</strong> Tratamento de inconsistências como valores vazios e conversão de tipos de dados (e.g., `VARCHAR` para `DECIMAL`/`INT`) para preparar os dados para análise.', 
+                    '<strong>Identificação de Fatores Chave de Churn:</strong> Análise exploratória de dados (EDA) em SQL para identificar padrões e variáveis com maior correlação com a taxa de evasão (e.g., tipo de contrato, tempo de permanência, serviços de internet, método de pagamento).',
+                    '<strong>Análise de Permanência (Tenure):</strong> Segmentação e visualização da taxa de churn em diferentes faixas de tempo de permanência do cliente, revelando a alta vulnerabilidade de clientes novos.',  
+                    '<strong>Dashboard Interativo no Power BI:</strong> Desenvolvimento de visualizações dinâmicas e de alto impacto para comunicar os principais drivers de churn de forma clara e acionável.', 
+                    '<strong>Insights Estratégicos para Retenção:</strong> Geração de conclusões baseadas em dados para subsidiar a criação de estratégias proativas de retenção de clientes e otimização de serviços.' 
                 ],
-                tools: ['SQL', 'Power BI'],
-                challenge: 'A empresa possuía uma grande quantidade de dados de clientes, mas não conseguia extrair informações claras sobre os motivos da evasão.',
-                solution: 'Foram utilizadas consultas SQL complexas para cruzar dados de diferentes tabelas (uso, assinaturas, suporte). O resultado foi consolidado e apresentado em um dashboard no Power BI, que revelou os principais "gargalos" na jornada do cliente que levavam ao churn.'
+                tools: ['SQL Server', 'Power BI'],
+                challenge: 'A empresa possuía um dataset bruto de clientes com potenciais inconsistências (como dados numéricos em formato de texto e valores vazios), dificultando a extração de insights claros sobre os motivos da evasão de clientes.', 
+                solution: 'Foi implementado um processo completo de tratamento de dados via consultas SQL, incluindo padronização de valores e correção de tipos de dados. Os dados limpos foram então explorados profundamente em SQL e, posteriormente, visualizados em um dashboard interativo no Power BI, que revelou os principais "gargalos" e padrões de comportamento que levavam ao churn, como a forte influência do tipo de contrato e do serviço de internet.' 
             }
         };
 
