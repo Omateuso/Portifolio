@@ -4,25 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mateus Valverde - Portfólio de Análise de Dados</title>
-    
-    <!-- Tailwind CSS (para layout e responsividade) -->
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 
-    <!-- AOS (Animate on Scroll) Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body class="antialiased">
 
-    <!-- ===== Header ===== -->
     <header class="header-main bg-card-transparent sticky top-0 z-50 border-b border-custom">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold text-highlight">Mateus Valverde</h1>
@@ -31,12 +25,10 @@
                 <a href="#projetos" class="link-interaction">Projetos</a>
                 <a href="#contato" class="link-interaction">Contato</a>
             </nav>
-            <!-- Menu Hamburguer para Mobile -->
-            <button id="mobile-menu-button" class="md:hidden text-white">
+            <button id="mobile-menu-button" class="md:hidden text-white" aria-label="Abrir menu">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
             </button>
         </div>
-        <!-- Navegação Mobile -->
         <div id="mobile-menu" class="hidden md:hidden">
             <a href="#sobre" class="block text-center py-2 text-secondary hover:bg-slate-700">Sobre Mim</a>
             <a href="#projetos" class="block text-center py-2 text-secondary hover:bg-slate-700">Projetos</a>
@@ -45,7 +37,6 @@
     </header>
 
     <main>
-        <!-- ===== Seção Hero ===== -->
         <section id="hero" class="hero-gradient min-h-[80vh] flex items-center justify-center text-center py-20 px-6">
             <div class="max-w-3xl">
                 <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-4" data-aos="fade-down">Transformando Dados em Decisões</h2>
@@ -53,7 +44,7 @@
                     <span id="typed-text"></span>
                 </p>
                 <p class="text-lg text-secondary max-w-2xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="400">
-                    Bem-vindo ao meu portfólio! Explore como uso tecnologia para resolver problemas, contar histórias com dados e apoiar a tomada de decisão estratégica.
+                    Bem-vindo ao meu portfólio. Explore como utilizo dados, machine learning e visualização analítica para resolver problemas e apoiar decisões estratégicas.
                 </p>
                 <a href="#projetos" class="button-main py-3 px-8 text-lg" data-aos="fade-up" data-aos-delay="600">
                     Veja meus projetos
@@ -61,7 +52,6 @@
             </div>
         </section>
 
-        <!-- ===== Seção Sobre Mim ===== -->
         <section id="sobre" class="py-24 bg-card">
             <div class="container mx-auto px-6">
                 <h3 class="text-3xl font-bold text-center mb-12 text-highlight" data-aos="fade-up">Sobre Mim</h3>
@@ -71,31 +61,40 @@
                     </div>
                     <div class="md:w-2/3 text-lg" data-aos="fade-left">
                         <p class="text-secondary mb-6">
-                            Sou um profissional de Tecnologia em transição para a área de Dados, com foco em transformar informações em valor estratégico para os negócios. Atualmente, atuo como suporte de TI no Coren-RJ, e venho desenvolvendo projetos de análise de dados que unem Python, SQL e Power BI para aprimorar minhas habilidades técnicas e gerar insights relevantes.
+                            Sou um profissional de Tecnologia com foco em Dados, com experiência prática em análise de dados, machine learning e business intelligence. Desenvolvo projetos que integram Python, SQL e Power BI para transformar dados em insights estratégicos, com interesse especial em modelagem preditiva, séries temporais e visualização analítica.
                         </p>
-                        <h4 class="text-xl font-bold text-white mb-4">Minhas Ferramentas:</h4>
+                        <h4 class="text-xl font-bold text-white mb-4">Minhas Ferramentas</h4>
                         <div class="flex flex-wrap gap-3">
                             <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">Power BI</span>
                             <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">SQL</span>
                             <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">Python</span>
                             <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">Excel</span>
-                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">DAX</span>
-                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">R</span>
+                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">Pandas</span>
+                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">Scikit-learn</span>
+                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">XGBoost</span>
+                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">Matplotlib</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== Seção Projetos ===== -->
         <section id="projetos" class="py-24">
             <div class="container mx-auto px-6">
                 <h3 class="text-3xl font-bold text-center mb-12 text-highlight" data-aos="fade-up">Projetos Recentes</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
 
-                    <div class="project-card rounded-lg overflow-hidden cursor-pointer" data-aos="fade-up" data-aos-delay="200" data-project-id="acidentes_prf">
-                        <img src="img/pj4.png" alt="Thumbnail do acidentes" class="w-full h-56 object-cover">
+                    <div class="project-card rounded-lg overflow-hidden cursor-pointer" data-aos="fade-up" data-project-id="energia_sin">
+                        <img src="img/pj5.png" alt="Thumbnail do Projeto Previsão de Carga de Energia" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-2">Previsão de Carga de Energia por Região</h4>
+                            <p class="text-secondary mb-4">Projeto de Machine Learning com XGBoost para prever a carga média diária dos subsistemas do SIN a partir de dados do ONS e INMET.</p>
+                            <span class="font-semibold text-highlight">Ver detalhes &rarr;</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card rounded-lg overflow-hidden cursor-pointer" data-aos="fade-up" data-aos-delay="100" data-project-id="acidentes_prf">
+                        <img src="img/pj4.png" alt="Thumbnail do Projeto Acidentes" class="w-full h-56 object-cover">
                         <div class="p-6">
                             <h4 class="text-xl font-bold text-white mb-2">Análise de Acidentes de Trânsito (PRF)</h4>
                             <p class="text-secondary mb-4">Análise de dados abertos da Polícia Rodoviária Federal em dashboard interativo.</p>
@@ -120,25 +119,25 @@
                             <span class="font-semibold text-highlight">Ver detalhes &rarr;</span>
                         </div>
                     </div>
-                    
+
                     <div class="project-card rounded-lg overflow-hidden cursor-pointer" data-aos="fade-up" data-aos-delay="100" data-project-id="precos_imoveis">
                         <img src="img/pj2.png" alt="Thumbnail do Projeto Imóveis" class="w-full h-56 object-cover">
                         <div class="p-6">
                             <h4 class="text-xl font-bold text-white mb-2">Preços de Imóveis</h4>
-                            <p class="text-secondary mb-4">Análise Preditiva e Dashboard de Preços de Imóveis.</p>
+                            <p class="text-secondary mb-4">Análise preditiva e dashboard de preços de imóveis.</p>
                             <span class="font-semibold text-highlight">Ver detalhes &rarr;</span>
                         </div>
                     </div>
 
+                </div>
             </div>
         </section>
 
-        <!-- ===== Seção Contato ===== -->
         <section id="contato" class="py-24 bg-card">
             <div class="container mx-auto px-6 text-center">
-                <h3 class="text-3xl font-bold text-highlight mb-4" data-aos="fade-up">Vamos Conversar!</h3>
+                <h3 class="text-3xl font-bold text-highlight mb-4" data-aos="fade-up">Vamos Conversar</h3>
                 <p class="text-lg text-secondary max-w-2xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="100">
-                    Estou sempre aberto a novas oportunidades e colaborações. Entre em contato.
+                    Estou aberto a oportunidades, projetos e colaborações na área de dados.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8" data-aos="fade-up" data-aos-delay="200">
                     <button id="copy-email-button" data-email="mateusphilipe.valverde@hotmail.com" class="link-interaction flex items-center gap-3 text-lg">
@@ -154,7 +153,6 @@
         </section>
     </main>
 
-    <!-- ===== Footer ===== -->
     <footer class="bg-main border-t border-custom">
         <div class="container mx-auto px-6 py-6 text-center text-secondary">
             <div id="theme-switcher" class="flex justify-center items-center gap-4 mb-4">
@@ -168,105 +166,123 @@
         </div>
     </footer>
 
-
-    <!-- ===== Modal ===== -->
     <div id="project-modal" class="modal modal-overlay invisible opacity-0 fixed inset-0 z-50 flex items-center justify-center p-4">
         <div id="modal-content" class="modal-content w-full max-w-4xl max-h-[90vh] rounded-lg overflow-y-auto transform scale-95"></div>
     </div>
 
-
-    <!-- ===== Scripts ===== -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-           const projectDetails = {
-            vendas: {
-                title: 'Dashboard de Vendas – Loja Fictícia',
-                image: "img/pj1.png",
-                description: 'Este projeto apresenta um dashboard interativo de vendas desenvolvido com o objetivo de analisar o desempenho de uma loja fictícia. A visualização foi construída para facilitar a tomada de decisões estratégicas a partir de indicadores e gráficos dinâmicos.',
-                highlights: [
-                    '<strong>Visão Geral de Vendas:</strong> Identificação dos produtos mais e menos vendidos, possibilitando uma gestão mais eficiente do estoque e o direcionamento de ações promocionais.',
-                    '<strong>Análise Geográfica:</strong> Utilização de um mapa interativo que exibe o desempenho de vendas por continente, facilitando a visualização de regiões com maior potencial de crescimento.',
-                    '<strong>Análise por Marca e Gênero:</strong> Gráficos que mostram o faturamento total por marca e a distribuição de vendas por gênero, apoiando estratégias de marketing direcionadas.',
-                    '<strong>Filtros Dinâmicos:</strong> Aplicação de segmentações por ano, mês e dia, permitindo ao usuário explorar os dados de forma granular e personalizada.'
-                ],
-                tools: ['Power BI'],
-                challenge: 'As bases de dados estavam distribuídas em múltiplos arquivos, incluindo informações de vendas por ano, além de cadastros de clientes, produtos e lojas, o que dificultava a análise consolidada.',
-                solution: 'Foi realizada a limpeza e padronização dos dados, seguida da integração das bases em um modelo de dados relacional no Power BI. Isso permitiu a criação de um dashboard coeso, com visualizações interativas e responsivas para extração de insights práticos.'
-            },
-            precos_imoveis: {
-                title: 'Análise Preditiva e Dashboard de Preços de Imóveis',
-                image: 'img/pj2.png',
-                description: 'Este projeto envolveu o desenvolvimento de um modelo de Machine Learning para prever preços de imóveis e a criação de um dashboard interativo para análise de dados e avaliação do modelo. O objetivo principal foi fornecer insights acionáveis sobre os fatores que influenciam o valor de venda de propriedades e demonstrar a acurácia do modelo preditivo.',
-                highlights: [
-                    '<strong>Modelagem Preditiva com Random Forest:</strong> Implementação e treinamento de um robusto modelo Random Forest Regressor em Python, capaz de prever o preço de venda de casas com base em um vasto conjunto de características estruturais e locacionais.',
-                    '<strong>Pipeline de Pré-processamento e Engenharia de Features:</strong> Desenvolvimento de um pipeline completo no Scikit-learn para tratamento de dados brutos. Isso incluiu a gestão de valores ausentes (imputação), codificação de variáveis categóricas (One-Hot Encoding) e escalonamento de features numéricas, essenciais para otimizar o desempenho do modelo.',
-                    '<strong>Análise e Visualização de Fatores de Preço:</strong> Exploração aprofundada das variáveis mais impactantes no valor dos imóveis. Utilização de gráficos de importância de features para identificar e quantificar a influência de características como área habitável, qualidade geral e bairro na precificação das propriedades.',
-                    '<strong>Dashboard de Avaliação de Desempenho do Modelo:</strong> Criação de visualizações chave em Matplotlib/Seaborn para avaliar a acurácia do modelo. Inclui gráficos de dispersão de previsões vs. valores reais e análise de resíduos, permitindo a identificação de padrões de erro e a compreensão do comportamento do modelo em diferentes faixas de preço.',
-                    '<strong>Insights Exploratórios Geográficos e de Qualidade:</strong> Análise visual da variação de preços por características qualitativas (ex: qualidade geral do imóvel) e por localização (bairro), revelando como esses atributos fundamentais impactam diretamente o valor de mercado dos imóveis.'
-                ],
-                tools: ['Python', 'Pandas', 'Scikit-learn', 'Joblib', 'Matplotlib', 'Seaborn'],
-                challenge: 'A base de dados original apresentava grande volume e complexidade, com a presença de múltiplas variáveis categóricas e numéricas, além de uma quantidade significativa de valores ausentes. O desafio foi transformar esses dados brutos em um formato limpo e estruturado, adequado para a construção de um modelo preditivo robusto.',
-                solution: 'Foi desenvolvido um pipeline automatizado de pré-processamento utilizando ColumnTransformer e Pipelines do Scikit-learn, garantindo a consistência e a qualidade das features. Subsequentemente, um modelo Random Forest foi treinado e rigorosamente avaliado, e um conjunto de visualizações foi criado para extrair e apresentar insights claros sobre o mercado imobiliário e a performance do modelo.'
-            },
-
-            churn: {
-                title: 'Análise de Churn em Empresa de Telecomunicações',
-                image: 'img/pj3-1.png', 
-                description: 'Estudo aprofundado sobre os fatores que levam à evasão de clientes (churn) em uma empresa de telecomunicações, utilizando SQL para tratamento e análise de dados, e Power BI para visualização interativa dos resultados.', 
-                highlights: [
-                    '<strong>Diagnóstico de Vulnerabilidade:</strong> Detectei que a fase inicial do cliente é crítica, com quase 50% dos novos clientes (0-12 meses) cancelando o serviço. Essa taxa cai drasticamente com o tempo, chegando a apenas 7% para clientes com mais de 5 anos, provando que a fidelização no primeiro ano é crucial.', 
-                    '<strong>Contrato Mensal como Principal Fator de Risco:</strong> A análise comprovou que o modelo de contrato é um poderoso previsor de churn. Clientes com contrato mensal cancelam quase 4 vezes mais que os de contrato anual e mais de 10 vezes mais que os de contrato bienal.',
-                    '<strong>Mapeamento de Pontos de Atrito:</strong> Descobri que a ausência de serviços de valor agregado eleva a chance de cancelamento. Clientes sem Suporte Técnico ou Segurança Online churnaram quase 3 vezes mais, indicando que esses serviços são percebidos como essenciais para a permanência.',  
-                    '<strong>Análise Contraintuitiva:</strong> Revelei um paradoxo importante: apesar de ser um serviço superior, a Fibra Óptica apresentava uma alta taxa de churn de 42%. Essa descoberta desafia a percepção comum e aponta para a necessidade de investigar fatores específicos como preço, estabilidade no serviço e instalação ou o perfil do cliente que adquire este serviço.', 
-                    '<strong>Tradução de Dados em Ações:</strong> Consolidei todas as descobertas em um dashboard interativo, permitindo que a gestão visualizasse os principais focos de churn e simulasse o impacto de possíveis ações de retenção, transformando dados brutos em um guia para a tomada de decisão.' 
-                ],
-                tools: ['SQL Server', 'Power BI'],
-                challenge: 'A empresa enfrentava uma alta e custosa taxa de evasão de clientes (churn), mas não possuía uma visão clara sobre quais fatores mais contribuíam para o problema. Os dados estavam em formato bruto e inconsistentes, o que impedia uma análise estratégica e a criação de ações eficazes para reter clientes.', 
-                solution: 'Utilizando SQL, realizei um processo completo de limpeza e transformação dos dados para garantir a precisão da análise. Em seguida, quantifiquei o impacto de cada variável no churn e apresentei os resultados em um dashboard no Power BI. A solução não apenas mostrou os dados, mas contou uma história clara: clientes novos, com contratos mensais e sem serviços de suporte eram os mais propensos a cancelar. Essa análise forneceu à gestão um mapa de ação, direcionando os esforços de retenção para os segmentos de maior risco e com maior potencial de retorno sobre o investimento.' 
-            },
-
-            acidentes_prf: {
-                title: 'Análise de Acidentes de Trânsito (PRF)',
-                image: 'img/pj4.png',
-                description: 'Projeto de análise de dados abertos da Polícia Rodoviária Federal (PRF), focado em identificar padrões, causas e estatísticas de acidentes nas rodovias federais. O dashboard interativo permite explorar o impacto de variáveis como clima, tipo de pista e horário nos incidentes.',
-                highlights: [
-                    '<strong>Visualização Geográfica:</strong> Identificação das rodovias e estados com maior incidência de acidentes.',
-                    '<strong>Análise Temporal:</strong> Padrões de acidentes por dia da semana e hora, auxiliando na alocação de recursos de fiscalização.',
-                    '<strong>Fatores Contribuintes:</strong> Análise das principais causas de acidentes (falha humana, animal na pista, falta de atenção, etc.).',
-                    '<strong>Interatividade:</strong> Dashboard 100% interativo no Power BI, permitindo drill-down e filtros dinâmicos.'
-                ],
-                tools: ['Power BI', 'ETL', 'Dados Abertos'],
-                challenge: 'A principal dificuldade foi tratar o grande volume de dados abertos brutos, garantindo a qualidade e consistência para a análise estatística e carregamento em tempo hábil.',
-                solution: 'Implementação de um pipeline de limpeza de dados e modelagem robusta no Power BI, transformando dados brutos em insights claros e acionáveis para segurança rodoviária.'
-            }
-        };
+            const projectDetails = {
+                energia_sin: {
+                    title: 'Previsão de Carga de Energia por Região (SIN)',
+                    image: 'img/pj5.png',
+                    description: 'Projeto de Machine Learning para previsão da carga média diária de energia dos subsistemas do Sistema Interligado Nacional (SIN), integrando dados históricos do ONS com variáveis meteorológicas do INMET. O projeto foi estruturado em quatro componentes principais: treinamento, predição, visualização e testes automatizados.',
+                    highlights: [
+                        '<strong>Integração de Dados de Energia e Clima:</strong> Combinação de dados históricos de carga do ONS com variáveis meteorológicas do INMET para enriquecer o contexto preditivo do modelo.',
+                        '<strong>Engenharia de Atributos Temporais:</strong> Criação de variáveis como mês, dia da semana, trimestre, feriados, fim de semana, carga do dia anterior e média móvel de 7 dias.',
+                        '<strong>Estratégia de Delta de Carga:</strong> O modelo aprende a variação diária da carga em relação ao dia anterior, melhorando a estabilidade da regressão em séries temporais.',
+                        '<strong>Treinamento por Subsistema:</strong> Modelos treinados separadamente para Norte, Sul, Nordeste e Sudeste, respeitando diferenças regionais de comportamento da carga.',
+                        '<strong>Predição para 2025:</strong> Os modelos carregam os dados preparados, estimam o delta de carga e reconstroem a carga absoluta prevista por região.',
+                        '<strong>Avaliação de Desempenho:</strong> O projeto utiliza métricas como MAE, RMSE e R² para acompanhar a qualidade das previsões.',
+                        '<strong>Visualizações em Arquivo Separado:</strong> Os gráficos comparativos entre carga real e prevista são gerados no arquivo resultado_visualizacoes.py e salvos individualmente por subsistema.',
+                        '<strong>Confiabilidade e Reutilização:</strong> O pipeline inclui persistência dos modelos com Joblib e testes automatizados com Pytest para validar funções e artefatos.'
+                    ],
+                    tools: ['Python', 'Pandas', 'XGBoost', 'Scikit-learn', 'Joblib', 'CodeCarbon', 'Pytest', 'Matplotlib'],
+                    challenge: 'O principal desafio foi construir uma solução robusta de previsão para séries temporais com dados heterogêneos, integrando informações energéticas e meteorológicas, criando atributos relevantes e respeitando as diferenças de comportamento entre os subsistemas do SIN.',
+                    solution: 'A solução foi organizada em um fluxo modular com processamento de dados climáticos, preparação da base de energia, engenharia de atributos temporais, treinamento regional com XGBoost, persistência dos modelos, predição para 2025, avaliação com métricas de regressão e geração separada de visualizações comparativas.'
+                },
+                vendas: {
+                    title: 'Dashboard de Vendas – Loja Fictícia',
+                    image: 'img/pj1.png',
+                    description: 'Este projeto apresenta um dashboard interativo de vendas desenvolvido com o objetivo de analisar o desempenho de uma loja fictícia. A visualização foi construída para facilitar a tomada de decisões estratégicas a partir de indicadores e gráficos dinâmicos.',
+                    highlights: [
+                        '<strong>Visão Geral de Vendas:</strong> Identificação dos produtos mais e menos vendidos, possibilitando uma gestão mais eficiente do estoque e o direcionamento de ações promocionais.',
+                        '<strong>Análise Geográfica:</strong> Utilização de um mapa interativo que exibe o desempenho de vendas por continente, facilitando a visualização de regiões com maior potencial de crescimento.',
+                        '<strong>Análise por Marca e Gênero:</strong> Gráficos que mostram o faturamento total por marca e a distribuição de vendas por gênero, apoiando estratégias de marketing direcionadas.',
+                        '<strong>Filtros Dinâmicos:</strong> Aplicação de segmentações por ano, mês e dia, permitindo ao usuário explorar os dados de forma granular e personalizada.'
+                    ],
+                    tools: ['Power BI'],
+                    challenge: 'As bases de dados estavam distribuídas em múltiplos arquivos, incluindo informações de vendas por ano, além de cadastros de clientes, produtos e lojas, o que dificultava a análise consolidada.',
+                    solution: 'Foi realizada a limpeza e padronização dos dados, seguida da integração das bases em um modelo de dados relacional no Power BI. Isso permitiu a criação de um dashboard coeso, com visualizações interativas e responsivas para extração de insights práticos.'
+                },
+                precos_imoveis: {
+                    title: 'Análise Preditiva e Dashboard de Preços de Imóveis',
+                    image: 'img/pj2.png',
+                    description: 'Este projeto envolveu o desenvolvimento de um modelo de Machine Learning para prever preços de imóveis e a criação de um dashboard interativo para análise de dados e avaliação do modelo. O objetivo principal foi fornecer insights acionáveis sobre os fatores que influenciam o valor de venda de propriedades e demonstrar a acurácia do modelo preditivo.',
+                    highlights: [
+                        '<strong>Modelagem Preditiva com Random Forest:</strong> Implementação e treinamento de um robusto modelo Random Forest Regressor em Python, capaz de prever o preço de venda de casas com base em um vasto conjunto de características estruturais e locacionais.',
+                        '<strong>Pipeline de Pré-processamento e Engenharia de Features:</strong> Desenvolvimento de um pipeline completo no Scikit-learn para tratamento de dados brutos. Isso incluiu a gestão de valores ausentes (imputação), codificação de variáveis categóricas (One-Hot Encoding) e escalonamento de features numéricas, essenciais para otimizar o desempenho do modelo.',
+                        '<strong>Análise e Visualização de Fatores de Preço:</strong> Exploração aprofundada das variáveis mais impactantes no valor dos imóveis. Utilização de gráficos de importância de features para identificar e quantificar a influência de características como área habitável, qualidade geral e bairro na precificação das propriedades.',
+                        '<strong>Dashboard de Avaliação de Desempenho do Modelo:</strong> Criação de visualizações-chave em Matplotlib/Seaborn para avaliar a acurácia do modelo. Inclui gráficos de dispersão de previsões versus valores reais e análise de resíduos.',
+                        '<strong>Insights Exploratórios Geográficos e de Qualidade:</strong> Análise visual da variação de preços por características qualitativas e por localização, revelando como esses atributos impactam diretamente o valor de mercado dos imóveis.'
+                    ],
+                    tools: ['Python', 'Pandas', 'Scikit-learn', 'Joblib', 'Matplotlib', 'Seaborn'],
+                    challenge: 'A base de dados original apresentava grande volume e complexidade, com múltiplas variáveis categóricas e numéricas, além de uma quantidade significativa de valores ausentes.',
+                    solution: 'Foi desenvolvido um pipeline automatizado de pré-processamento utilizando ColumnTransformer e Pipelines do Scikit-learn, garantindo consistência e qualidade das features. Em seguida, um modelo Random Forest foi treinado e avaliado com visualizações analíticas.'
+                },
+                churn: {
+                    title: 'Análise de Churn em Empresa de Telecomunicações',
+                    image: 'img/pj3-1.png',
+                    description: 'Estudo aprofundado sobre os fatores que levam à evasão de clientes em uma empresa de telecomunicações, utilizando SQL para tratamento e análise de dados, e Power BI para visualização interativa dos resultados.',
+                    highlights: [
+                        '<strong>Diagnóstico de Vulnerabilidade:</strong> Detectei que a fase inicial do cliente é crítica, com quase 50% dos novos clientes cancelando o serviço.',
+                        '<strong>Contrato Mensal como Principal Fator de Risco:</strong> Clientes com contrato mensal cancelam quase 4 vezes mais que os de contrato anual e mais de 10 vezes mais que os de contrato bienal.',
+                        '<strong>Mapeamento de Pontos de Atrito:</strong> Clientes sem suporte técnico ou segurança online churnaram quase 3 vezes mais.',
+                        '<strong>Análise Contraintuitiva:</strong> Apesar de ser um serviço superior, a Fibra Óptica apresentou alta taxa de churn, apontando para investigações mais profundas sobre preço, estabilidade e perfil do cliente.',
+                        '<strong>Tradução de Dados em Ações:</strong> Consolidação das descobertas em um dashboard interativo para apoiar ações de retenção.'
+                    ],
+                    tools: ['SQL Server', 'Power BI'],
+                    challenge: 'A empresa enfrentava uma alta taxa de evasão de clientes, mas não possuía uma visão clara sobre quais fatores mais contribuíam para o problema.',
+                    solution: 'Utilizando SQL, realizei um processo completo de limpeza e transformação dos dados. Em seguida, quantifiquei o impacto de cada variável no churn e apresentei os resultados em um dashboard no Power BI.'
+                },
+                acidentes_prf: {
+                    title: 'Análise de Acidentes de Trânsito (PRF)',
+                    image: 'img/pj4.png',
+                    description: 'Projeto de análise de dados abertos da Polícia Rodoviária Federal, focado em identificar padrões, causas e estatísticas de acidentes nas rodovias federais.',
+                    highlights: [
+                        '<strong>Visualização Geográfica:</strong> Identificação das rodovias e estados com maior incidência de acidentes.',
+                        '<strong>Análise Temporal:</strong> Padrões de acidentes por dia da semana e hora, auxiliando na alocação de recursos de fiscalização.',
+                        '<strong>Fatores Contribuintes:</strong> Análise das principais causas de acidentes.',
+                        '<strong>Interatividade:</strong> Dashboard interativo no Power BI, permitindo drill-down e filtros dinâmicos.'
+                    ],
+                    tools: ['Power BI', 'ETL', 'Modelagem de Dados'],
+                    challenge: 'A principal dificuldade foi tratar o grande volume de dados abertos brutos, garantindo qualidade e consistência para a análise.',
+                    solution: 'Implementação de um pipeline de limpeza de dados e modelagem robusta no Power BI, transformando dados brutos em insights claros e acionáveis para segurança rodoviária.'
+                }
+            };
 
             AOS.init({ duration: 700, once: true, offset: 50 });
 
             new Typed('#typed-text', {
-                strings: ['Analista de Dados', 'Business Intelligence', 'Apaixonado por Tecnologia'],
-                typeSpeed: 50, backSpeed: 25, backDelay: 2000, loop: true, smartBackspace: true
+                strings: ['Analista de Dados', 'Machine Learning', 'Business Intelligence', 'Séries Temporais'],
+                typeSpeed: 50,
+                backSpeed: 25,
+                backDelay: 2000,
+                loop: true,
+                smartBackspace: true
             });
 
             document.getElementById('current-year').textContent = new Date().getFullYear();
-            
+
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-            mobileMenu.addEventListener('click', (e) => { if(e.target.tagName === 'A') mobileMenu.classList.add('hidden') });
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') mobileMenu.classList.add('hidden');
+            });
 
             const modal = document.getElementById('project-modal');
             const modalContent = document.getElementById('modal-content');
-            
+
             function openModal(details) {
                 modalContent.innerHTML = `
                     <div class="p-4 sm:p-8">
                         <div class="flex justify-between items-start mb-6">
                             <h1 class="text-2xl sm:text-3xl font-bold text-highlight pr-4">${details.title}</h1>
-                            <button id="close-modal-button" class="text-3xl font-light text-secondary hover:text-white">&times;</button>
+                            <button id="close-modal-button" class="text-3xl font-light text-secondary hover:text-white" aria-label="Fechar modal">&times;</button>
                         </div>
                         <p class="text-secondary mb-6">${details.description}</p>
                         <img src="${details.image}" alt="Imagem do projeto" class="w-full rounded-lg mb-8 border-2 border-custom">
@@ -301,8 +317,13 @@
                 });
             });
 
-            modal.addEventListener('click', (e) => { if (e.target === modal) closeModal() });
-            document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('invisible')) closeModal() });
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('invisible')) closeModal();
+            });
 
             const copyEmailButton = document.getElementById('copy-email-button');
             const emailTextSpan = document.getElementById('email-text');
@@ -311,8 +332,7 @@
                 navigator.clipboard.writeText(email).then(() => {
                     emailTextSpan.textContent = 'Email copiado!';
                     emailTextSpan.className = 'text-success';
-                }).catch(err => {
-                    console.error('Falha ao copiar:', err);
+                }).catch(() => {
                     emailTextSpan.textContent = 'Erro ao copiar';
                     emailTextSpan.className = 'text-error';
                 }).finally(() => {
@@ -327,19 +347,16 @@
             themeButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const theme = button.dataset.theme;
-
-                    document.body.className = document.body.className.replace(/theme-\w+/g, '');
-
+                    document.body.className = document.body.className.replace(/theme-\w+/g, '').trim();
                     if (theme !== 'theme-purpura') {
                         document.body.classList.add(theme);
                     }
-
-                    document.querySelector('.theme-switcher-button.active').classList.remove('active');
+                    const activeButton = document.querySelector('.theme-switcher-button.active');
+                    if (activeButton) activeButton.classList.remove('active');
                     button.classList.add('active');
                 });
             });
         });
     </script>
-
 </body>
 </html>
