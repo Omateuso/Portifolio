@@ -1,15 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="scroll-smooth">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mateus Valverde - Portfólio de Análise de Dados</title>
+    <title>Mateus Valverde — Portfólio de Dados e Machine Learning</title>
+    <meta name="description" content="Portfólio de Mateus Valverde: projetos de análise de dados, machine learning e business intelligence com Python, SQL e Power BI — de previsão de carga de energia a análise de churn.">
+    <meta name="author" content="Mateus Valverde">
+    <meta name="theme-color" content="#0f172a">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Mateus Valverde — Portfólio de Dados e Machine Learning">
+    <meta property="og:description" content="Projetos de análise de dados, machine learning e business intelligence com Python, SQL e Power BI.">
+    <meta property="og:image" content="img/pj5-1.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script>
+        /* Restaura o tema salvo antes da primeira pintura, para não piscar. */
+        (function () {
+            try {
+                var t = localStorage.getItem('tema');
+                if (t && t !== 'theme-purpura') { document.documentElement.classList.add(t); }
+            } catch (e) { /* localStorage bloqueado: segue no tema padrão */ }
+        })();
+    </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -17,157 +37,346 @@
 </head>
 <body class="antialiased">
 
-    <header class="header-main bg-card-transparent sticky top-0 z-50 border-b border-custom">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-highlight">Mateus Valverde</h1>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#sobre" class="link-interaction">Sobre Mim</a>
-                <a href="#projetos" class="link-interaction">Projetos</a>
-                <a href="#contato" class="link-interaction">Contato</a>
+    <a href="#conteudo" class="link-pular">Pular para o conteúdo</a>
+    <div id="progresso-rolagem" role="presentation"></div>
+
+    <header class="cabecalho">
+        <div class="envelope py-4 flex justify-between items-center gap-4">
+            <a href="#hero" class="marca" aria-label="Mateus Valverde — início">
+                <span class="marca__sigla" aria-hidden="true">MV</span>
+                <span class="marca__nome">Mateus Valverde<small>Dados &amp; Machine Learning</small></span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8" aria-label="Navegação principal">
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#projetos" class="nav-link">Projetos</a>
+                <a href="#contato" class="nav-link">Contato</a>
             </nav>
-            <button id="mobile-menu-button" class="md:hidden text-white" aria-label="Abrir menu">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-            </button>
+
+            <div class="flex items-center gap-2">
+                <div class="seletor-tema">
+                    <button id="botao-paleta" class="botao-icone" aria-label="Trocar tema de cores" aria-expanded="false" aria-controls="paleta">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                    </button>
+                    <div id="paleta" class="paleta" role="group" aria-label="Temas de cor">
+                        <button title="Nebula Púrpura" aria-label="Tema Nebula Púrpura" data-theme="theme-purpura" class="theme-switcher-button active" style="background-color: #8b5cf6;"></button>
+                        <button title="Abismo Esmeralda" aria-label="Tema Abismo Esmeralda" data-theme="theme-esmeralda" class="theme-switcher-button" style="background-color: #34d399;"></button>
+                        <button title="Sol Carmesim" aria-label="Tema Sol Carmesim" data-theme="theme-carmesim" class="theme-switcher-button" style="background-color: #ef4444;"></button>
+                        <button title="Oceano Cobalto" aria-label="Tema Oceano Cobalto" data-theme="theme-cobalto" class="theme-switcher-button" style="background-color: #3b82f6;"></button>
+                        <button title="Monocromático Nórdico" aria-label="Tema Monocromático Nórdico" data-theme="theme-nordico" class="theme-switcher-button" style="background-color: #D1D5DB;"></button>
+                    </div>
+                </div>
+
+                <button id="mobile-menu-button" class="botao-icone md:hidden" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden">
-            <a href="#sobre" class="block text-center py-2 text-secondary hover:bg-slate-700">Sobre Mim</a>
-            <a href="#projetos" class="block text-center py-2 text-secondary hover:bg-slate-700">Projetos</a>
-            <a href="#contato" class="block text-center py-2 text-secondary hover:bg-slate-700">Contato</a>
+
+        <div id="menu-mobile" class="md:hidden">
+            <div>
+                <nav class="envelope pb-4" aria-label="Navegação mobile">
+                    <a href="#sobre" class="nav-mobile-link">Sobre</a>
+                    <a href="#projetos" class="nav-mobile-link">Projetos</a>
+                    <a href="#contato" class="nav-mobile-link">Contato</a>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <main>
-        <section id="hero" class="hero-gradient min-h-[80vh] flex items-center justify-center text-center py-20 px-6">
-            <div class="max-w-3xl">
-                <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-4" data-aos="fade-down">Transformando Dados em Decisões</h2>
-                <p class="text-xl md:text-2xl text-highlight mb-8 font-semibold" data-aos="fade-down" data-aos-delay="200">
+    <main id="conteudo">
+        <section id="hero" class="hero">
+            <div class="envelope flex flex-col items-center gap-6">
+                <p class="hero__selo" data-aos="fade-down">
+                    <span class="ponto" aria-hidden="true"></span>
+                    Aberto a oportunidades e colaborações
+                </p>
+
+                <h1 class="t-hero max-w-4xl" data-aos="fade-down" data-aos-delay="80">
+                    Transformando dados em <span class="texto-gradiente">decisões</span>
+                </h1>
+
+                <p class="hero__papel" data-aos="fade-down" data-aos-delay="160">
                     <span id="typed-text"></span>
                 </p>
-                <p class="text-lg text-secondary max-w-2xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="400">
-                    Bem-vindo ao meu portfólio. Explore como utilizo dados, machine learning e visualização analítica para resolver problemas e apoiar decisões estratégicas.
+
+                <p class="text-secondary max-w-2xl text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="240">
+                    Bem-vindo ao meu portfólio. Explore como utilizo dados, machine learning e visualização
+                    analítica para resolver problemas e apoiar decisões estratégicas.
                 </p>
-                <a href="#projetos" class="button-main py-3 px-8 text-lg" data-aos="fade-up" data-aos-delay="600">
-                    Veja meus projetos
-                </a>
-            </div>
-        </section>
 
-        <section id="sobre" class="py-24 bg-card">
-            <div class="container mx-auto px-6">
-                <h3 class="text-3xl font-bold text-center mb-12 text-highlight" data-aos="fade-up">Sobre Mim</h3>
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/3 flex justify-center" data-aos="fade-right">
-                        <img src="img/Perfil.png" alt="Foto de Perfil de Mateus Valverde" class="w-60 h-60 rounded-full object-cover border-4 border-highlight shadow-2xl">
-                    </div>
-                    <div class="md:w-2/3 text-lg" data-aos="fade-left">
-                        <p class="text-secondary mb-6">
-                            Sou um profissional de Tecnologia com foco em Dados, com experiência prática em análise de dados, machine learning e business intelligence. Desenvolvo projetos que integram Python, SQL e Power BI para transformar dados em insights estratégicos, com interesse especial em modelagem preditiva, séries temporais e visualização analítica.
-                        </p>
-                        <h4 class="text-xl font-bold text-white mb-4">Minhas Ferramentas</h4>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">Power BI</span>
-                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">SQL</span>
-                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">Python</span>
-                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">Excel</span>
-                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">Pandas</span>
-                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">Scikit-learn</span>
-                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">XGBoost</span>
-                            <span class="skill-tag px-4 py-2 rounded-full text-sm font-semibold">Matplotlib</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projetos" class="py-24">
-            <div class="container mx-auto px-6">
-                <h3 class="text-3xl font-bold text-center mb-12 text-highlight" data-aos="fade-up">Projetos Recentes</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                    <div class="project-card rounded-lg overflow-hidden cursor-pointer" data-aos="fade-up" data-project-id="energia_sin">
-                        <img src="img/pj5.png" alt="Thumbnail do Projeto Previsão de Carga de Energia" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-bold text-white mb-2">Previsão de Carga de Energia por Região</h4>
-                            <p class="text-secondary mb-4">Projeto de Machine Learning com XGBoost para prever a carga média diária dos subsistemas do SIN a partir de dados do ONS e INMET.</p>
-                            <span class="font-semibold text-highlight">Ver detalhes &rarr;</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card rounded-lg overflow-hidden cursor-pointer" data-aos="fade-up" data-aos-delay="100" data-project-id="acidentes_prf">
-                        <img src="img/pj4.png" alt="Thumbnail do Projeto Acidentes" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-bold text-white mb-2">Análise de Acidentes de Trânsito (PRF)</h4>
-                            <p class="text-secondary mb-4">Análise de dados abertos da Polícia Rodoviária Federal em dashboard interativo.</p>
-                            <span class="font-semibold text-highlight">Ver detalhes &rarr;</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card rounded-lg overflow-hidden cursor-pointer" data-aos="fade-up" data-aos-delay="200" data-project-id="churn">
-                        <img src="img/pj3-1.png" alt="Thumbnail do Projeto Churn" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-bold text-white mb-2">Análise de Churn</h4>
-                            <p class="text-secondary mb-4">Estudo sobre a evasão de clientes utilizando SQL para consulta e Power BI para visualização.</p>
-                            <span class="font-semibold text-highlight">Ver detalhes &rarr;</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card rounded-lg overflow-hidden cursor-pointer" data-aos="fade-up" data-project-id="vendas">
-                        <img src="img/pj1.png" alt="Thumbnail do Projeto Análise de Vendas" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-bold text-white mb-2">Análise de Vendas</h4>
-                            <p class="text-secondary mb-4">Dashboard interativo no Power BI para análise de performance de vendas e KPIs.</p>
-                            <span class="font-semibold text-highlight">Ver detalhes &rarr;</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card rounded-lg overflow-hidden cursor-pointer" data-aos="fade-up" data-aos-delay="100" data-project-id="precos_imoveis">
-                        <img src="img/pj2.png" alt="Thumbnail do Projeto Imóveis" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-bold text-white mb-2">Preços de Imóveis</h4>
-                            <p class="text-secondary mb-4">Análise preditiva e dashboard de preços de imóveis.</p>
-                            <span class="font-semibold text-highlight">Ver detalhes &rarr;</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="contato" class="py-24 bg-card">
-            <div class="container mx-auto px-6 text-center">
-                <h3 class="text-3xl font-bold text-highlight mb-4" data-aos="fade-up">Vamos Conversar</h3>
-                <p class="text-lg text-secondary max-w-2xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="100">
-                    Estou aberto a oportunidades, projetos e colaborações na área de dados.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8" data-aos="fade-up" data-aos-delay="200">
-                    <button id="copy-email-button" data-email="mateusphilipe.valverde@hotmail.com" class="link-interaction flex items-center gap-3 text-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        <span id="email-text">mateusphilipe.valverde@hotmail.com</span>
-                    </button>
-                    <a href="https://www.linkedin.com/in/mateus-valverde/" target="_blank" rel="noopener noreferrer" class="link-interaction flex items-center gap-3 text-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                        LinkedIn
+                <div class="flex flex-wrap justify-center gap-3 mt-2" data-aos="fade-up" data-aos-delay="320">
+                    <a href="#projetos" class="btn btn--primario">
+                        Ver projetos
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
+                    <a href="#contato" class="btn btn--fantasma">Falar comigo</a>
+                </div>
+
+                <ul class="hero__stack mt-4" data-aos="fade-up" data-aos-delay="400" aria-label="Principais tecnologias">
+                    <li class="chip">Python</li>
+                    <li class="chip">SQL</li>
+                    <li class="chip">Power BI</li>
+                    <li class="chip">XGBoost</li>
+                    <li class="chip">Pandas</li>
+                    <li class="chip">Streamlit</li>
+                </ul>
+            </div>
+
+            <a href="#sobre" class="hero__seta" aria-label="Ir para a seção Sobre">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+            </a>
+        </section>
+
+        <section id="sobre" class="secao secao--alt">
+            <div class="envelope">
+                <div class="cabecalho-secao" data-aos="fade-up">
+                    <p class="rotulo">Sobre mim</p>
+                    <h2 class="t-secao">Dados viram decisão quando a análise é <span class="texto-gradiente">verificável</span></h2>
+                </div>
+
+                <div class="sobre-grid">
+                    <div class="retrato" data-aos="fade-up">
+                        <img src="img/Perfil.png" alt="Foto de perfil de Mateus Valverde" loading="lazy">
+                        <p class="retrato__legenda">
+                            <strong>Mateus Valverde</strong>
+                            <span>Análise de Dados · Machine Learning · BI</span>
+                        </p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="80">
+                        <p class="text-secondary text-lg leading-relaxed">
+                            Sou um profissional de Tecnologia com foco em Dados, com experiência prática em análise
+                            de dados, machine learning e business intelligence. Desenvolvo projetos que integram
+                            Python, SQL e Power BI para transformar dados em insights estratégicos, com interesse
+                            especial em modelagem preditiva, séries temporais e visualização analítica.
+                        </p>
+
+                        <h3 class="t-card mt-10 mb-5">Ferramentas que uso nos projetos</h3>
+                        <div class="grupos-skill">
+                            <div class="grupo-skill">
+                                <h4>Linguagens &amp; Dados</h4>
+                                <ul>
+                                    <li class="chip">Python</li>
+                                    <li class="chip">SQL</li>
+                                    <li class="chip">Pandas</li>
+                                    <li class="chip">NumPy</li>
+                                    <li class="chip">Excel</li>
+                                </ul>
+                            </div>
+                            <div class="grupo-skill">
+                                <h4>Machine Learning</h4>
+                                <ul>
+                                    <li class="chip">Scikit-learn</li>
+                                    <li class="chip">XGBoost</li>
+                                    <li class="chip">Random Forest</li>
+                                </ul>
+                            </div>
+                            <div class="grupo-skill">
+                                <h4>BI &amp; Visualização</h4>
+                                <ul>
+                                    <li class="chip">Power BI</li>
+                                    <li class="chip">Matplotlib</li>
+                                    <li class="chip">Seaborn</li>
+                                    <li class="chip">Streamlit</li>
+                                </ul>
+                            </div>
+                            <div class="grupo-skill">
+                                <h4>Qualidade &amp; Infra</h4>
+                                <ul>
+                                    <li class="chip">Pytest</li>
+                                    <li class="chip">Git</li>
+                                    <li class="chip">GitHub Actions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projetos" class="secao">
+            <div class="envelope">
+                <div class="cabecalho-secao" data-aos="fade-up">
+                    <p class="rotulo">Projetos</p>
+                    <h2 class="t-secao">O que eu construí, com os números abertos</h2>
+                    <p>
+                        Cinco projetos de ponta a ponta, de dashboards de BI a pipelines de machine learning.
+                        Clique em qualquer um para ver a metodologia, as métricas e as decisões por trás dele.
+                    </p>
+                </div>
+
+                <article class="project-card project-card--destaque" data-project-id="energia_sin" data-aos="fade-up">
+                    <div class="project-card__midia">
+                        <img src="img/pj5-5.png" alt="Série de carga do SIN em 2025: carga real contra as previsões do modelo, com painel de erro" loading="lazy">
+                    </div>
+                    <div class="project-card__corpo">
+                        <p class="selo-destaque">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5 4.7 1.3 6.8L12 17.4 5.9 20.6 7.2 13.8l-5-4.7 6.9-.8z"/></svg>
+                            Projeto em destaque
+                        </p>
+                        <h3 class="t-card">Previsão de Carga de Energia por Região e do SIN</h3>
+                        <p>
+                            Modelo de Machine Learning que prevê a carga diária de energia dos subsistemas do SIN
+                            a partir de clima, calendário e consumo industrial — com teste automatizado que prova
+                            que a previsão não recicla a carga observada.
+                        </p>
+                        <div class="metricas">
+                            <div><b>96,2%</b><span>acurácia no SIN</span></div>
+                            <div><b>+41,2%</b><span>vs. baseline</span></div>
+                            <div><b>96</b><span>testes na CI</span></div>
+                        </div>
+                        <div class="project-card__chips">
+                            <span class="chip">Python</span>
+                            <span class="chip">XGBoost</span>
+                            <span class="chip">Streamlit</span>
+                            <span class="chip">Pytest</span>
+                        </div>
+                        <button type="button" class="project-card__cta" aria-label="Ver detalhes do projeto Previsão de Carga de Energia">
+                            Ver detalhes
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </article>
+
+                <div class="grade-projetos">
+                    <article class="project-card" data-project-id="acidentes_prf" data-aos="fade-up">
+                        <div class="project-card__midia">
+                            <img src="img/pj4.png" alt="Dashboard de análise de acidentes de trânsito da PRF" loading="lazy">
+                        </div>
+                        <div class="project-card__corpo">
+                            <h3 class="t-card">Análise de Acidentes de Trânsito (PRF)</h3>
+                            <p>491 mil acidentes em rodovias federais, decompostos por gravidade, tipo de pista, veículo e sazonalidade — com 53% concentrados em pista simples.</p>
+                            <div class="project-card__chips">
+                                <span class="chip">Power BI</span>
+                                <span class="chip">ETL</span>
+                                <span class="chip">Modelagem</span>
+                            </div>
+                            <button type="button" class="project-card__cta" aria-label="Ver detalhes do projeto Análise de Acidentes de Trânsito">
+                                Ver detalhes
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-project-id="churn" data-aos="fade-up" data-aos-delay="80">
+                        <div class="project-card__midia">
+                            <img src="img/pj3-1.png" alt="Dashboard de análise de churn em empresa de telecomunicações" loading="lazy">
+                        </div>
+                        <div class="project-card__corpo">
+                            <h3 class="t-card">Análise de Churn</h3>
+                            <p>27% de churn em uma base de 7.043 clientes. O contrato mensal cancela 43% contra 3% do bienal — a demografia quase não explica, o contrato explica.</p>
+                            <div class="project-card__chips">
+                                <span class="chip">SQL Server</span>
+                                <span class="chip">Power BI</span>
+                            </div>
+                            <button type="button" class="project-card__cta" aria-label="Ver detalhes do projeto Análise de Churn">
+                                Ver detalhes
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-project-id="precos_imoveis" data-aos="fade-up">
+                        <div class="project-card__midia">
+                            <img src="img/pj2.png" alt="Análise preditiva e dashboard de preços de imóveis" loading="lazy">
+                        </div>
+                        <div class="project-card__corpo">
+                            <h3 class="t-card">Preços de Imóveis</h3>
+                            <p>Random Forest com pipeline completo no Scikit-learn e um painel que mostra onde o modelo erra: acima de $400 mil, ele subestima de forma sistemática.</p>
+                            <div class="project-card__chips">
+                                <span class="chip">Python</span>
+                                <span class="chip">Scikit-learn</span>
+                                <span class="chip">Seaborn</span>
+                            </div>
+                            <button type="button" class="project-card__cta" aria-label="Ver detalhes do projeto Preços de Imóveis">
+                                Ver detalhes
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-project-id="vendas" data-aos="fade-up" data-aos-delay="80">
+                        <div class="project-card__midia">
+                            <img src="img/pj1.png" alt="Dashboard interativo de vendas no Power BI" loading="lazy">
+                        </div>
+                        <div class="project-card__corpo">
+                            <h3 class="t-card">Análise de Vendas</h3>
+                            <p>$548,51 Mi em três anos de operação, com 82% da receita concentrada em apenas três das onze marcas do catálogo.</p>
+                            <div class="project-card__chips">
+                                <span class="chip">Power BI</span>
+                                <span class="chip">Modelagem</span>
+                            </div>
+                            <button type="button" class="project-card__cta" aria-label="Ver detalhes do projeto Análise de Vendas">
+                                Ver detalhes
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="secao secao--alt">
+            <div class="envelope">
+                <div class="contato-card" data-aos="fade-up">
+                    <div class="relative">
+                        <p class="rotulo">Contato</p>
+                        <h2 class="t-secao mt-4">Vamos conversar</h2>
+                        <p class="text-secondary text-lg leading-relaxed mt-4 max-w-2xl">
+                            Estou aberto a oportunidades, projetos e colaborações na área de dados.
+                            O caminho mais rápido é o e-mail — clique para copiar.
+                        </p>
+                    </div>
+
+                    <div class="contato-acoes">
+                        <button type="button" id="copy-email-button" class="contato-item" data-email="mateusphilipe.valverde@hotmail.com">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <span>
+                                <small>E-mail</small>
+                                <span class="valor" id="email-text">mateusphilipe.valverde@hotmail.com</span>
+                            </span>
+                        </button>
+
+                        <a href="https://www.linkedin.com/in/mateus-valverde/" target="_blank" rel="noopener noreferrer" class="contato-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            <span>
+                                <small>LinkedIn</small>
+                                <span class="valor">/in/mateus-valverde</span>
+                            </span>
+                        </a>
+
+                        <a href="https://github.com/Omateuso" target="_blank" rel="noopener noreferrer" class="contato-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.4 1.24-3.24-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.24a11.5 11.5 0 0 1 6.01 0c2.29-1.56 3.3-1.24 3.3-1.24.66 1.65.25 2.87.12 3.17.77.84 1.24 1.92 1.24 3.24 0 4.63-2.81 5.65-5.49 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58C20.56 22.3 24 17.8 24 12.5 24 5.87 18.63.5 12 .5z"/></svg>
+                            <span>
+                                <small>GitHub</small>
+                                <span class="valor">@Omateuso</span>
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-main border-t border-custom">
-        <div class="container mx-auto px-6 py-6 text-center text-secondary">
-            <div id="theme-switcher" class="flex justify-center items-center gap-4 mb-4">
-                <button title="Nebula Púrpura" data-theme="theme-purpura" class="theme-switcher-button active" style="background-color: #8b5cf6;"></button>
-                <button title="Abismo Esmeralda" data-theme="theme-esmeralda" class="theme-switcher-button" style="background-color: #34d399;"></button>
-                <button title="Sol Carmesim" data-theme="theme-carmesim" class="theme-switcher-button" style="background-color: #ef4444;"></button>
-                <button title="Oceano Cobalto" data-theme="theme-cobalto" class="theme-switcher-button" style="background-color: #3b82f6;"></button>
-                <button title="Monocromático Nórdico" data-theme="theme-nordico" class="theme-switcher-button" style="background-color: #D1D5DB;"></button>
-            </div>
+    <footer class="rodape">
+        <div class="envelope flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-secondary">
             <p>&copy; <span id="current-year"></span> Mateus Valverde. Todos os direitos reservados.</p>
+            <nav class="flex items-center gap-6" aria-label="Navegação do rodapé">
+                <a href="#sobre" class="link-interaction">Sobre</a>
+                <a href="#projetos" class="link-interaction">Projetos</a>
+                <a href="#contato" class="link-interaction">Contato</a>
+            </nav>
         </div>
     </footer>
 
-    <div id="project-modal" class="modal modal-overlay invisible opacity-0 fixed inset-0 z-50 flex items-center justify-center p-4">
-        <div id="modal-content" class="modal-content w-full max-w-4xl max-h-[90vh] rounded-lg overflow-y-auto transform scale-95"></div>
+    <button id="voltar-topo" aria-label="Voltar ao topo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+    </button>
+
+    <div id="project-modal" class="modal modal-overlay invisible opacity-0 fixed inset-0 z-50 flex items-center justify-center p-4"
+         role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+        <div id="modal-content" class="modal-content w-full max-w-4xl max-h-[90vh] overflow-y-auto transform scale-95"></div>
     </div>
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
@@ -177,143 +386,650 @@
         document.addEventListener('DOMContentLoaded', function() {
             const projectDetails = {
                 energia_sin: {
-                    title: 'Previsão de Carga de Energia por Região (SIN)',
-                    image: 'img/pj5.png',
-                    description: 'Projeto de Machine Learning para previsão da carga média diária de energia dos subsistemas do Sistema Interligado Nacional (SIN), integrando dados históricos do ONS com variáveis meteorológicas do INMET. O projeto foi estruturado em quatro componentes principais: treinamento, predição, visualização e testes automatizados.',
+                    title: 'Previsão de Carga de Energia por Região e do SIN a partir do Clima',
+                    image: 'img/pj5-1.png',
+                    imageCaption: 'A relação que o modelo aprende, nas cinco regiões — azul são dias úteis, laranja fins de semana. O Sul tem curva em U, o Sudeste sobe acima de 22 °C e o Norte é quase plano, porque é dominado por carga eletrointensiva que não responde à temperatura.',
+                    description: 'Projeto de Machine Learning para previsão da carga diária de energia (MWmed) dos subsistemas do Sistema Interligado Nacional e do agregado nacional, integrando dados do ONS, séries meteorológicas do INMET e consumo industrial da EPE. O diferencial está na metodologia: os atributos são separados em grupos por classe de informação, e um teste de permutação mede quanto cada grupo realmente sustenta o resultado — provando que a previsão vem do clima e não da carga observada que serve de gabarito. Inclui interface em Streamlit, projeção anual em MWmed e TWh, 96 testes automatizados e integração contínua.',
                     highlights: [
-                        '<strong>Integração de Dados de Energia e Clima:</strong> Combinação de dados históricos de carga do ONS com variáveis meteorológicas do INMET para enriquecer o contexto preditivo do modelo.',
-                        '<strong>Engenharia de Atributos Temporais:</strong> Criação de variáveis como mês, dia da semana, trimestre, feriados, fim de semana, carga do dia anterior e média móvel de 7 dias.',
-                        '<strong>Estratégia de Delta de Carga:</strong> O modelo aprende a variação diária da carga em relação ao dia anterior, melhorando a estabilidade da regressão em séries temporais.',
-                        '<strong>Treinamento por Subsistema:</strong> Modelos treinados separadamente para Norte, Sul, Nordeste e Sudeste, respeitando diferenças regionais de comportamento da carga.',
-                        '<strong>Predição para 2025:</strong> Os modelos carregam os dados preparados, estimam o delta de carga e reconstroem a carga absoluta prevista por região.',
-                        '<strong>Avaliação de Desempenho:</strong> O projeto utiliza métricas como MAE, RMSE e R² para acompanhar a qualidade das previsões.',
-                        '<strong>Visualizações em Arquivo Separado:</strong> Os gráficos comparativos entre carga real e prevista são gerados no arquivo resultado_visualizacoes.py e salvos individualmente por subsistema.',
-                        '<strong>Confiabilidade e Reutilização:</strong> O pipeline inclui persistência dos modelos com Joblib e testes automatizados com Pytest para validar funções e artefatos.'
+                        '<strong>Metodologia Explícita Contra Contaminação de Dados:</strong> os atributos são separados em quatro grupos (calendário, clima, industrial e autoregressivo) e apenas o último toca a carga observada. O modo climático o exclui por completo, tornando a contaminação impossível por construção — garantia verificada por teste automatizado, não apenas afirmada.',
+                        '<strong>Teste de Contaminação por Permutação:</strong> cada grupo de atributos é embaralhado e o estrago no erro é medido. O resultado de +0,0% ao embaralhar o grupo autoregressivo é a prova mecânica de que a previsão climática não lê carga observada; a piora de 49% a 89% ao embaralhar o clima mostra que ela depende dele de verdade.',
+                        '<strong>Três Modos de Previsão com Classes de Informação Distintas:</strong> <code>climatico</code> (sem nenhuma carga observada), <code>delta_d1</code> (operacional de um dia à frente, usando a carga de ontem) e <code>delta_recursivo</code> (horizonte longo, realimentando as próprias previsões). Modos que recebem informações diferentes não são comparáveis entre si, e o projeto trata isso explicitamente.',
+                        '<strong>Baselines Separados por Classe de Informação:</strong> um modelo que não lê a carga do ano de teste não é cobrado contra um baseline que lê. Modelos climáticos competem com média histórica e climatologia; modelos operacionais competem com persistência e semana anterior.',
+                        '<strong>Decomposição para Contornar a Limitação do XGBoost:</strong> como árvores não extrapolam além do intervalo do alvo visto no treino, a carga é decomposta em nível (industrial) + resposta climática — regressão linear para o patamar, que extrapola, e XGBoost sobre o resíduo estacionário.',
+                        '<strong>Integração de Consumo Industrial da EPE:</strong> o Norte é dominado por carga eletrointensiva que não responde a temperatura, e um modelo puramente climático chegava a R² negativo em horizonte longo. A série industrial mensal, defasada em dois meses para respeitar o atraso real de publicação, resolveu o caso — no Norte, embaralhar a variável industrial piora o erro em 46,8%, quase tanto quanto embaralhar o clima.',
+                        '<strong>Agregação do SIN com Clima Ponderado por Carga:</strong> o Sistema Interligado Nacional não existe como linha no arquivo do ONS, sendo derivado dos quatro subsistemas. Carga e patamar industrial somam; o clima é média ponderada pela participação na carga de um ano fixo e passado — média simples daria ao Norte (7 GW) o mesmo peso do Sudeste (45 GW), e ponderar pela carga corrente vazaria o alvo.',
+                        '<strong>Projeção Anual em MWmed e TWh:</strong> gera a carga média do ano inteiro e a energia projetada, por região e para o SIN, a partir da climatologia histórica ou de um clima informado. Em backtest de 2025, a soma dos quatro subsistemas errou apenas −1,6% na média anual.',
+                        '<strong>Interface Gráfica em Streamlit:</strong> cinco abas — simulador de cenário com decomposição entre nível de base e resposta climática, curva de resposta térmica sobreposta aos dias observados, projeção anual, previsão em lote e painel de desempenho. Nenhum campo pede carga observada, então previsões feitas pela interface não podem ser contaminadas.',
+                        '<strong>Entrada Tolerante em CSV e Excel:</strong> absorve as variações de uma planilha real — separador ponto e vírgula, vírgula decimal, codificação latin-1, nomes de coluna em português corrente e região por extenso ou sigla. Arquivo que cobre só parte do período é completado pela climatologia histórica, com marcação de origem em cada linha para distinguir o que veio do usuário do que foi estimado.',
+                        '<strong>Pipeline Reprodutível de Ponta a Ponta:</strong> seis scripts numerados, da coleta nas fontes oficiais à projeção anual. Nenhum dado é versionado — os cerca de 195 MB de arquivos brutos são baixados pelo próprio pipeline, mantendo o repositório enxuto e todo mundo trabalhando sobre os originais.',
+                        '<strong>Qualidade Verificada:</strong> 96 testes automatizados, dos quais 65 rodam sem nenhum dado baixado, com integração contínua no GitHub Actions cobrindo Python 3.12, 3.13 e 3.14.'
                     ],
-                    tools: ['Python', 'Pandas', 'XGBoost', 'Scikit-learn', 'Joblib', 'CodeCarbon', 'Pytest', 'Matplotlib'],
-                    challenge: 'O principal desafio foi construir uma solução robusta de previsão para séries temporais com dados heterogêneos, integrando informações energéticas e meteorológicas, criando atributos relevantes e respeitando as diferenças de comportamento entre os subsistemas do SIN.',
-                    solution: 'A solução foi organizada em um fluxo modular com processamento de dados climáticos, preparação da base de energia, engenharia de atributos temporais, treinamento regional com XGBoost, persistência dos modelos, predição para 2025, avaliação com métricas de regressão e geração separada de visualizações comparativas.'
+                    tools: ['Python', 'Pandas', 'NumPy', 'PyArrow', 'XGBoost', 'Scikit-learn', 'Joblib', 'Streamlit', 'Matplotlib', 'openpyxl', 'Holidays', 'Pytest', 'GitHub Actions', 'Git'],
+                    challenge: 'Em previsão de carga, é fácil produzir métricas excelentes sem que o modelo tenha aprendido nada de útil. Atributos derivados da própria série — carga do dia anterior, médias móveis, consumo setorial do mês corrente — carregam parte da resposta, e um R² alto pode refletir apenas a inércia da série, não capacidade preditiva. O desafio central foi construir uma solução capaz de provar que a previsão está apoiada no clima, e não no gabarito, mantendo desempenho útil em regiões com comportamentos muito distintos: o Sul tem curva de resposta em U, o Sudeste sobe acima de 22 °C, e o Norte é quase indiferente à temperatura.',
+                    solution: 'O projeto foi reconstruído em torno da separação de atributos por grupo de informação, com um modo de previsão que exclui por completo qualquer variável autoregressiva e um teste de permutação que mede, por região, quanto cada grupo realmente sustenta o resultado. As médias móveis passaram a usar defasagem explícita para nunca conter o dia previsto, e a série industrial da EPE entrou defasada em dois meses, replicando o atraso real de publicação. A carga foi decomposta em patamar industrial mais resposta climática, contornando a incapacidade do XGBoost de extrapolar, o que resolveu o Norte — antes com R² negativo em horizonte longo. Sobre essa base foram construídos o agregado nacional com clima ponderado por carga, a projeção anual em MWmed e TWh, e uma interface em Streamlit que aceita CSV e Excel e completa períodos incompletos com climatologia histórica. Todo o conjunto é sustentado por 96 testes automatizados e integração contínua em três versões de Python.',
+                    solutionFigure: {
+                        src: 'img/pj5-6.png',
+                        alt: 'Diagrama do pipeline: fontes públicas, coleta, atributos por grupo, modelos, decomposição, avaliação com garantias, saídas e interface Streamlit',
+                        caption: 'O pipeline, das fontes oficiais à interface. A seta em vermelho é o ponto central da metodologia: o modo climático exclui o grupo autoregressivo inteiro, e é essa exclusão que torna a contaminação impossível por construção — não uma promessa, uma propriedade do desenho.'
+                    },
+                    gallery: {
+                        title: 'A Interface',
+                        intro: 'A interface em Streamlit tem cinco abas. Nenhum campo pede carga observada, então previsões feitas por ela não podem ser contaminadas.',
+                        items: [
+                            {
+                                src: 'img/pj5-2.png',
+                                alt: 'Aba Simulador da interface, mostrando carga prevista decomposta em nível de base e resposta climática',
+                                caption: '<strong>Simulador.</strong> A carga prevista é decomposta entre nível de base — o patamar industrial — e resposta climática, com o histórico da mesma época do ano como referência. Aqui, um domingo de fevereiro no Sul: 10.994 MWmed, sendo −3.516 de resposta climática.'
+                            },
+                            {
+                                src: 'img/pj5-3.png',
+                                alt: 'Aba Resposta térmica da interface, com a curva do modelo sobreposta aos dias observados no Sul',
+                                caption: '<strong>Resposta térmica.</strong> A curva que o modelo aprendeu, sobreposta aos dias realmente observados. No Sul, varrer toda a faixa de temperatura da região move a carga em 3.173 MWmed — 27% da média. É a sensibilidade climática do subsistema, medida em vez de suposta.'
+                            },
+                            {
+                                src: 'img/pj5-4.png',
+                                alt: 'Aba Projeção anual da interface, com carga média do ano, energia em TWh e indicadores por região',
+                                caption: '<strong>Projeção anual.</strong> Carga média do ano, energia em TWh e indicadores por região, a partir da climatologia histórica ou de um clima informado. As outras duas abas — previsão em lote por CSV/Excel e painel de desempenho — não estão ilustradas aqui.'
+                            }
+                        ]
+                    },
+                    results: [
+                        {
+                            caption: 'Erro médio absoluto (MAE) em MWmed. Treino em 2024, teste em 2025 — 365 dias, 5 regiões. O ganho é medido contra o melhor baseline da <em>mesma</em> classe de informação: um modelo que não lê a carga do ano de teste não é comparado com um que lê.',
+                            headers: ['Região', 'climatico', 'ganho', 'delta_d1', 'ganho'],
+                            rows: [
+                                ['Norte', '251,9', '+55,6%', '150,6', '+27,5%'],
+                                ['Nordeste', '431,0', '+39,8%', '225,1', '+47,2%'],
+                                ['Sul', '711,8', '+52,1%', '389,0', '+55,7%'],
+                                ['Sudeste/C-Oeste', '1.724,0', '+49,1%', '817,8', '+61,4%'],
+                                { cells: ['SIN (nacional)', '3.112,0', '+41,2%', '1.285,6', '+53,1%'], highlight: true }
+                            ],
+                            note: '<code>climatico</code> não usa nenhuma carga observada — contaminação impossível. <code>delta_d1</code> é operacional de um dia à frente e usa a carga de ontem. Acurácia (100 − MAPE) ponderada pela carga: 96,19% no modo climático e 98,01% no delta_d1 — mas o que separa modelo de baseline aqui é o ganho, não o MAPE puro, porque a série de carga tem um piso grande e estável.'
+                        },
+                        {
+                            caption: 'Teste de contaminação no modo climático: piora do MAE ao embaralhar cada grupo de atributos. É o número mais forte do projeto — +0,0% em autoregressivo é a prova mecânica de que o modo não usa carga observada, e +49% a +89% em clima mostra que a previsão depende dele de verdade.',
+                            headers: ['Região', 'clima', 'industrial', 'calendário', 'autoregressivo'],
+                            rows: [
+                                ['Norte', '+49,6%', '+46,8%', '+38,0%', '+0,0%'],
+                                ['Nordeste', '+61,0%', '+0,3%', '+68,0%', '+0,0%'],
+                                ['Sul', '+70,8%', '+17,9%', '+118,9%', '+0,0%'],
+                                ['Sudeste/C-Oeste', '+89,2%', '+0,6%', '+78,1%', '+0,0%']
+                            ],
+                            note: 'O Norte é a única região onde a carga industrial pesa quase tanto quanto o clima — reflexo da carga eletrointensiva que não responde a temperatura.'
+                        },
+                        {
+                            caption: 'Projeção anual — backtest de 2025. Carga média do ano em MWmed, projetada com o clima real, contra o observado.',
+                            headers: ['Região', 'Projetado', 'Observado', 'Erro'],
+                            rows: [
+                                ['Norte', '8.441', '8.312', '+1,6%'],
+                                ['Nordeste', '12.945', '13.267', '−2,4%'],
+                                ['Sul', '13.184', '13.804', '−4,5%'],
+                                ['Sudeste/C-Oeste', '43.726', '44.226', '−1,1%'],
+                                ['SIN (modelo dedicado)', '75.980', '79.609', '−4,6%'],
+                                { cells: ['SIN (soma dos 4)', '78.296', '79.609', '−1,6%'], highlight: true }
+                            ],
+                            note: 'Energia do SIN: 665,6 TWh projetado contra 697,4 TWh real.'
+                        }
+                    ],
+                    resultsFigure: {
+                        src: 'img/pj5-5.png',
+                        alt: 'Série diária de carga do SIN em 2025: carga real contra as previsões dos três modos, com painel de erro abaixo',
+                        caption: 'A carga real do SIN em 2025 contra as previsões dos três modos, com o erro no painel de baixo. A subestimação sistemática do pico de verão fica visível — o modelo foi treinado apenas em 2024 e não viu o crescimento do ano seguinte. Ficou no portfólio em vez de ser escondida.'
+                    },
+                    stats: [
+                        { value: '3', label: 'Fontes de dados (ONS, INMET, EPE)' },
+                        { value: '5', label: 'Regiões modeladas (4 subsistemas + SIN)' },
+                        { value: '3', label: 'Modos de previsão' },
+                        { value: '27', label: 'Atributos, em 4 grupos' },
+                        { value: '~1.100', label: 'Arquivos horários de estações' },
+                        { value: '~195 MB', label: 'Volume bruto por par de anos' },
+                        { value: '96', label: 'Testes automatizados (65 sem dados)' },
+                        { value: '3.12 – 3.14', label: 'Versões de Python na CI — verde' }
+                    ],
+                    notes: {
+                        title: 'Notas de Honestidade Analítica',
+                        intro: 'Três resultados que contrariam a intuição e ficaram registrados em vez de escondidos.',
+                        items: [
+                            'Somar as previsões dos quatro subsistemas é mais preciso que o modelo dedicado do SIN — MAE de 2.486,1 contra 3.112,0, uma melhora de 20%. Os erros regionais são parcialmente independentes e se cancelam no agregado. Os dois caminhos ficam disponíveis e a interface sinaliza a diferença.',
+                            'Na média anual, o clima quase não importa. Projetar 2025 com o clima observado deu praticamente o mesmo que projetar com a climatologia (−4,6% contra −3,8% no SIN), porque as anomalias de temperatura se compensam ao longo de 365 dias. O clima explica a variação diária; o total do ano é governado pelo patamar industrial e pelo crescimento da carga.',
+                            'O modelo subestima 2025 de forma sistemática, por ter sido treinado apenas em 2024 e não ter visto o crescimento do ano seguinte. Ampliar a janela de treino é o próximo passo natural.'
+                        ]
+                    },
+                    repo: { url: 'https://github.com/Omateuso/ML_ENERGIA', label: 'Ver código no GitHub' },
+                    license: 'MIT',
+                    sources: [
+                        { name: 'ONS — Carga de energia', url: 'https://dados.ons.org.br/dataset/carga-energia' },
+                        { name: 'INMET — Dados históricos', url: 'https://portal.inmet.gov.br/dadoshistoricos' },
+                        { name: 'EPE — Consumo de energia elétrica', url: 'https://www.epe.gov.br/pt/publicacoes-dados-abertos/publicacoes/consumo-de-energia-eletrica' }
+                    ]
                 },
                 vendas: {
                     title: 'Dashboard de Vendas – Loja Fictícia',
                     image: 'img/pj1.png',
-                    description: 'Este projeto apresenta um dashboard interativo de vendas desenvolvido com o objetivo de analisar o desempenho de uma loja fictícia. A visualização foi construída para facilitar a tomada de decisões estratégicas a partir de indicadores e gráficos dinâmicos.',
+                    imageCaption: 'O painel completo: quatro indicadores no topo, a série mensal de faturamento, a divisão por gênero, o ranking das onze marcas e o mapa por continente — tudo governado pelo filtro de período.',
+                    description: 'Dashboard interativo para analisar o desempenho de uma loja fictícia entre janeiro de 2021 e dezembro de 2023: $548,51 Mi de faturamento, 2,12 Mi de produtos vendidos, 18,48 Mil clientes e ticket médio de $478,65. As bases chegaram separadas — vendas por ano, além dos cadastros de clientes, produtos e lojas — e foram integradas em um modelo relacional no Power BI. O painel foi desenhado para responder três perguntas em sequência: quanto vendemos ao longo do tempo, quem compra e quais marcas realmente sustentam a receita.',
                     highlights: [
-                        '<strong>Visão Geral de Vendas:</strong> Identificação dos produtos mais e menos vendidos, possibilitando uma gestão mais eficiente do estoque e o direcionamento de ações promocionais.',
-                        '<strong>Análise Geográfica:</strong> Utilização de um mapa interativo que exibe o desempenho de vendas por continente, facilitando a visualização de regiões com maior potencial de crescimento.',
-                        '<strong>Análise por Marca e Gênero:</strong> Gráficos que mostram o faturamento total por marca e a distribuição de vendas por gênero, apoiando estratégias de marketing direcionadas.',
-                        '<strong>Filtros Dinâmicos:</strong> Aplicação de segmentações por ano, mês e dia, permitindo ao usuário explorar os dados de forma granular e personalizada.'
+                        '<strong>Quatro Indicadores que Fecham Entre Si:</strong> $548,51 Mi de faturamento, 2,12 Mi de produtos vendidos, $478,65 de ticket médio e 18,48 Mil clientes. Os quatro respondem ao filtro de período, e a consistência entre eles serviu de conferência do modelo: a soma das onze marcas dá exatamente o faturamento total, e a soma por gênero reproduz os produtos vendidos.',
+                        '<strong>Receita Fortemente Concentrada:</strong> Contoso ($223,9 Mi), Northwind Traders ($116,7 Mi) e Litware ($109,4 Mi) somam $450,0 Mi — 82% de todo o faturamento. As outras oito marcas juntas ficam em $98,5 Mi. Qualquer estratégia de portfólio começa reconhecendo essa concentração.',
+                        '<strong>Cauda Longa de Marcas:</strong> a distância entre a primeira e a última é de quase 750 vezes — de $223,9 Mi da Contoso a $0,3 Mi da A. Datum. Sete das onze marcas faturam menos de $10 Mi cada, o que levanta a pergunta de custo de manutenção de catálogo.',
+                        '<strong>Degrau na Série Mensal:</strong> o faturamento se mantém na casa de $5 Mi ao longo de 2021 e salta para a faixa de $20 Mi a partir de janeiro de 2022, patamar sustentado até o fim de 2023. Um degrau desse tamanho é mudança estrutural ou cobertura desigual da base — em qualquer um dos casos, é a primeira coisa a verificar antes de comparar anos.',
+                        '<strong>Perfil por Gênero:</strong> 1.168.764 produtos para o público feminino (55%) e 948.504 para o masculino (45%), somando os 2,12 Mi do indicador. Uma diferença de 10 pontos que sustenta segmentação de campanha sem ser drástica o bastante para justificar dois catálogos.',
+                        '<strong>Alcance Geográfico por Continente:</strong> mapa interativo com o faturamento concentrado em América do Norte, Europa e Ásia, útil para dimensionar onde há presença real e onde há espaço.',
+                        '<strong>Filtro de Período por Data Inicial e Final:</strong> a segmentação de 01/01/2021 a 31/12/2023 recalcula todos os indicadores e visuais, permitindo isolar um ano ou um trimestre sem trocar de tela.',
+                        '<strong>Modelo Relacional em Vez de Planilhas Empilhadas:</strong> as vendas anuais viraram uma tabela de fatos ligada às dimensões de cliente, produto e loja. É o que permite cruzar marca com gênero e com geografia no mesmo painel, sem duplicar registros.'
                     ],
-                    tools: ['Power BI'],
-                    challenge: 'As bases de dados estavam distribuídas em múltiplos arquivos, incluindo informações de vendas por ano, além de cadastros de clientes, produtos e lojas, o que dificultava a análise consolidada.',
-                    solution: 'Foi realizada a limpeza e padronização dos dados, seguida da integração das bases em um modelo de dados relacional no Power BI. Isso permitiu a criação de um dashboard coeso, com visualizações interativas e responsivas para extração de insights práticos.'
+                    tools: ['Power BI', 'ETL', 'Modelagem de Dados'],
+                    challenge: 'As bases estavam distribuídas em múltiplos arquivos — vendas separadas por ano, mais cadastros independentes de clientes, produtos e lojas — o que impedia qualquer leitura consolidada. Além da integração, havia o problema de projeto: com onze marcas, três anos de histórico e cortes por gênero e geografia, era fácil produzir um painel cheio de gráficos e pobre em conclusão. O desafio real foi decidir o que colocar em primeiro plano e garantir que os números batessem entre si depois de unir quatro fontes diferentes.',
+                    solution: 'Fiz a limpeza e a padronização dos dados e integrei as bases em um modelo relacional, com as vendas anuais consolidadas em uma tabela de fatos ligada às dimensões de cliente, produto e loja. Sobre esse modelo montei uma hierarquia de leitura: indicadores agregados no topo, evolução temporal em seguida, e só então os cortes por marca, gênero e continente. Usei a reconciliação entre os visuais como teste do modelo — o ranking de marcas somando o faturamento total e a divisão por gênero somando os produtos vendidos confirmam que as junções não duplicaram nem perderam registros.',
+                    stats: [
+                        { value: '$548,51 Mi', label: 'Faturamento total' },
+                        { value: '2,12 Mi', label: 'Produtos vendidos' },
+                        { value: '18,48 Mil', label: 'Clientes atendidos' },
+                        { value: '$478,65', label: 'Ticket médio' },
+                        { value: '11', label: 'Marcas no catálogo' },
+                        { value: '82%', label: 'Da receita nas 3 maiores marcas' },
+                        { value: '3 anos', label: 'Período coberto (2021–2023)' },
+                        { value: '55%', label: 'Dos produtos para o público feminino' }
+                    ],
+                    results: [
+                        {
+                            caption: 'Faturamento por marca, com a participação calculada sobre o total. A soma das onze marcas fecha exatamente com o indicador de $548,51 Mi — foi essa reconciliação que validou o modelo de dados.',
+                            headers: ['Marca', 'Faturamento', 'Participação'],
+                            rows: [
+                                ['Contoso', '$223,9 Mi', '40,8%'],
+                                ['Northwind Traders', '$116,7 Mi', '21,3%'],
+                                ['Litware', '$109,4 Mi', '19,9%'],
+                                ['Southridge Video', '$37,5 Mi', '6,8%'],
+                                ['Tailspin Toys', '$31,9 Mi', '5,8%'],
+                                ['Fabrikam', '$9,2 Mi', '1,7%'],
+                                ['Adventure Works', '$8,3 Mi', '1,5%'],
+                                ['Wide World Importers', '$6,1 Mi', '1,1%'],
+                                ['Proseware', '$3,2 Mi', '0,6%'],
+                                ['The Phone Company', '$2,0 Mi', '0,4%'],
+                                ['A. Datum', '$0,3 Mi', '0,1%'],
+                                { cells: ['Total', '$548,51 Mi', '100%'], highlight: true }
+                            ],
+                            note: 'As três primeiras marcas somam $450,0 Mi; as oito restantes, $98,5 Mi.'
+                        }
+                    ]
                 },
                 precos_imoveis: {
                     title: 'Análise Preditiva e Dashboard de Preços de Imóveis',
-                    image: 'img/pj2.png',
-                    description: 'Este projeto envolveu o desenvolvimento de um modelo de Machine Learning para prever preços de imóveis e a criação de um dashboard interativo para análise de dados e avaliação do modelo. O objetivo principal foi fornecer insights acionáveis sobre os fatores que influenciam o valor de venda de propriedades e demonstrar a acurácia do modelo preditivo.',
+                    image: 'img/pj2-2.png',
+                    imageCaption: 'Previsto contra real, com a linha ideal <em>y = x</em>. Até cerca de $300 mil os pontos colam na diagonal; acima de $400 mil a nuvem se abre e passa a cair sistematicamente abaixo da linha — o modelo subestima os imóveis mais caros.',
+                    description: 'Modelo de Machine Learning para prever o preço de venda de imóveis, acompanhado de um painel de seis gráficos que avalia tanto os dados quanto o próprio modelo. O pipeline em Scikit-learn trata valores ausentes, codifica as variáveis categóricas e escalona as numéricas antes de treinar um Random Forest Regressor. O que diferencia o projeto é a avaliação: em vez de reportar uma métrica agregada, o painel mostra onde o modelo acerta, onde erra e por quê — e o erro não é uniforme ao longo da faixa de preço, o que muda como a previsão deve ser usada.',
                     highlights: [
-                        '<strong>Modelagem Preditiva com Random Forest:</strong> Implementação e treinamento de um robusto modelo Random Forest Regressor em Python, capaz de prever o preço de venda de casas com base em um vasto conjunto de características estruturais e locacionais.',
-                        '<strong>Pipeline de Pré-processamento e Engenharia de Features:</strong> Desenvolvimento de um pipeline completo no Scikit-learn para tratamento de dados brutos. Isso incluiu a gestão de valores ausentes (imputação), codificação de variáveis categóricas (One-Hot Encoding) e escalonamento de features numéricas, essenciais para otimizar o desempenho do modelo.',
-                        '<strong>Análise e Visualização de Fatores de Preço:</strong> Exploração aprofundada das variáveis mais impactantes no valor dos imóveis. Utilização de gráficos de importância de features para identificar e quantificar a influência de características como área habitável, qualidade geral e bairro na precificação das propriedades.',
-                        '<strong>Dashboard de Avaliação de Desempenho do Modelo:</strong> Criação de visualizações-chave em Matplotlib/Seaborn para avaliar a acurácia do modelo. Inclui gráficos de dispersão de previsões versus valores reais e análise de resíduos.',
-                        '<strong>Insights Exploratórios Geográficos e de Qualidade:</strong> Análise visual da variação de preços por características qualitativas e por localização, revelando como esses atributos impactam diretamente o valor de mercado dos imóveis.'
+                        '<strong>Pipeline de Pré-processamento Reprodutível:</strong> <code>ColumnTransformer</code> e <code>Pipeline</code> do Scikit-learn encadeando imputação de valores ausentes, One-Hot Encoding das categóricas e escalonamento das numéricas. O prefixo <code>num__</code> nos nomes das features do gráfico de importância é a assinatura desse transformador — o pré-processamento e o modelo são um único objeto treinável, não etapas soltas em um notebook.',
+                        '<strong>Duas Variáveis Explicam Dois Terços do Modelo:</strong> a qualidade geral do acabamento (<code>OverallQual</code>) responde por cerca de 0,56 da importância e a área habitável (<code>GrLivArea</code>) por cerca de 0,12. Juntas, aproximadamente 68% de um ranking de 20 features — as 18 restantes dividem o terço que sobra.',
+                        '<strong>Relação Monotônica com a Qualidade:</strong> a mediana de preço sobe em todas as dez faixas de qualidade, de cerca de $50 mil na faixa 1 para cerca de $430 mil na faixa 10. Mais revelador que a tendência é a dispersão: a amplitude interquartil cresce junto com a qualidade, o que já antecipa em qual faixa o modelo vai errar mais.',
+                        '<strong>Heterocedasticidade Explícita:</strong> no gráfico de resíduos o erro se concentra perto de zero até cerca de $250 mil de previsão e se abre em leque acima disso, com os maiores desvios passando de $100 mil nos imóveis de alto valor. O modelo não tem uma precisão única — tem uma precisão por faixa de preço.',
+                        '<strong>Viés Sistemático no Topo da Faixa:</strong> acima de cerca de $400 mil os pontos caem consistentemente abaixo da linha <em>y = x</em>. É o comportamento esperado de árvores de decisão, que não extrapolam além do intervalo do alvo visto no treino — a previsão fica ancorada no teto do que o modelo conheceu.',
+                        '<strong>A Assimetria dos Dados Explica o Viés:</strong> a distribuição de preços é fortemente assimétrica à direita, com a maior parte dos imóveis entre cerca de $100 mil e $200 mil, moda perto de $140 mil e uma cauda que se estende até cerca de $750 mil. A faixa alta tem poucos exemplos para treinar, e é justamente ali que o erro cresce — os dois gráficos contam a mesma história por ângulos diferentes.',
+                        '<strong>Localização Medida, Não Suposta:</strong> entre os dez bairros mais caros, NridgHt, NoRidge e StoneBr lideram com medianas acima de $280 mil, enquanto os últimos da lista ficam próximos de $200 mil. O boxplot expõe também a variação interna de cada bairro, que em alguns casos é maior que a diferença entre bairros.',
+                        '<strong>Painel de Seis Gráficos com Ordem de Leitura:</strong> distribuição do alvo, previsto contra real, resíduos, importância das features, preço por qualidade e preço por bairro. Os três primeiros avaliam o modelo, os três últimos explicam os dados — e a sequência foi montada para que cada gráfico responda a uma pergunta levantada pelo anterior.',
+                        '<strong>Avaliação Honesta como Entrega:</strong> as limitações não estão em nota de rodapé, estão nos gráficos principais. Um painel que só mostrasse a dispersão previsto contra real pareceria melhor; mostrar os resíduos ao lado é o que permite a alguém decidir se confia na previsão para um imóvel de $600 mil.'
                     ],
                     tools: ['Python', 'Pandas', 'Scikit-learn', 'Joblib', 'Matplotlib', 'Seaborn'],
-                    challenge: 'A base de dados original apresentava grande volume e complexidade, com múltiplas variáveis categóricas e numéricas, além de uma quantidade significativa de valores ausentes.',
-                    solution: 'Foi desenvolvido um pipeline automatizado de pré-processamento utilizando ColumnTransformer e Pipelines do Scikit-learn, garantindo consistência e qualidade das features. Em seguida, um modelo Random Forest foi treinado e avaliado com visualizações analíticas.'
+                    challenge: 'A base original é volumosa e heterogênea, com dezenas de variáveis numéricas e categóricas e uma quantidade significativa de valores ausentes — o suficiente para que qualquer tratamento manual se tornasse irreprodutível. Mas o desafio mais interessante apareceu depois do treino: um modelo de preços com boa métrica agregada pode ser inútil exatamente na faixa em que o erro custa mais caro. Era preciso construir uma avaliação capaz de mostrar que a precisão varia ao longo da faixa de preço, em vez de esconder isso atrás de um único número.',
+                    solution: 'O pré-processamento foi encapsulado em um <code>ColumnTransformer</code> dentro de um <code>Pipeline</code> do Scikit-learn, garantindo que imputação, codificação e escalonamento sejam aplicados de forma idêntica no treino e na predição. Sobre essa base treinei um Random Forest Regressor e, em vez de reportar apenas métricas, construí um painel de seis gráficos que ataca o modelo por ângulos diferentes: a dispersão previsto contra real com a linha ideal, a análise de resíduos que revela a heterocedasticidade, o ranking de importância que mostra em que o modelo se apoia, e três visões exploratórias que explicam por que o erro se comporta assim. O modelo treinado é persistido com Joblib para reuso.',
+                    stats: [
+                        { value: '20', label: 'Features no ranking de importância' },
+                        { value: '~68%', label: 'Da importância em 2 variáveis' },
+                        { value: '10', label: 'Faixas de qualidade analisadas' },
+                        { value: '6', label: 'Gráficos de avaliação no painel' }
+                    ],
+                    results: [
+                        {
+                            caption: 'As dez features mais importantes segundo o Random Forest, na ordem em que aparecem no painel. A tabela traz o ranking, que é exato; os valores de importância foram lidos do gráfico e estão descritos no texto de forma aproximada.',
+                            headers: ['#', 'Feature', 'O que representa'],
+                            rows: [
+                                { cells: ['1', 'OverallQual', 'Qualidade geral do material e acabamento (1 a 10)'], highlight: true },
+                                ['2', 'GrLivArea', 'Área habitável acima do nível do solo'],
+                                ['3', 'TotalBsmtSF', 'Área total do porão'],
+                                ['4', '2ndFlrSF', 'Área do segundo andar'],
+                                ['5', 'BsmtFinSF1', 'Área acabada do porão'],
+                                ['6', '1stFlrSF', 'Área do primeiro andar'],
+                                ['7', 'LotArea', 'Área do terreno'],
+                                ['8', 'GarageArea', 'Área da garagem'],
+                                ['9', 'YearBuilt', 'Ano de construção'],
+                                ['10', 'GarageCars', 'Capacidade da garagem, em vagas']
+                            ],
+                            note: 'Oito das dez primeiras são medidas de área ou de idade do imóvel. A única variável de julgamento subjetivo, <code>OverallQual</code>, é a que pesa mais — sozinha, mais que todas as outras dezenove somadas.'
+                        }
+                    ],
+                    gallery: {
+                        title: 'O Painel, Gráfico por Gráfico',
+                        intro: 'Os seis gráficos foram gerados em um único arquivo de alta resolução; abaixo, cada um em tamanho legível, na ordem que conta a história do projeto.',
+                        items: [
+                            {
+                                src: 'img/pj2-1.png',
+                                alt: 'Histograma da distribuição dos preços de venda, com curva de densidade sobreposta',
+                                caption: '<strong>Distribuição do alvo.</strong> Assimetria forte à direita: a maior parte dos imóveis fica entre cerca de $100 mil e $200 mil, com moda perto de $140 mil, e a cauda se estende até cerca de $750 mil. É a primeira pista de que o modelo terá poucos exemplos para aprender a faixa alta.'
+                            },
+                            {
+                                src: 'img/pj2-5.png',
+                                alt: 'Boxplot do preço de venda para cada uma das dez faixas de qualidade geral',
+                                caption: '<strong>Preço por qualidade geral.</strong> A mediana sobe em todas as dez faixas, de cerca de $50 mil na faixa 1 para cerca de $430 mil na faixa 10 — a relação monotônica que explica por que essa variável domina o ranking de importância. Note que a caixa também fica mais alta a cada faixa: mais qualidade significa mais preço e mais incerteza.'
+                            },
+                            {
+                                src: 'img/pj2-6.png',
+                                alt: 'Boxplot do preço de venda nos dez bairros mais caros',
+                                caption: '<strong>Preço nos dez bairros mais caros.</strong> NridgHt, NoRidge e StoneBr lideram, com medianas acima de $280 mil, contra cerca de $200 mil no fim da lista. A dispersão interna de StoneBr e NridgHt é ampla o bastante para se sobrepor à de vários bairros abaixo — localização importa, mas não substitui os atributos do imóvel.'
+                            },
+                            {
+                                src: 'img/pj2-4.png',
+                                alt: 'Gráfico de barras horizontais com a importância das 20 features mais relevantes do Random Forest',
+                                caption: '<strong>Importância das features.</strong> <code>OverallQual</code> com cerca de 0,56 e <code>GrLivArea</code> com cerca de 0,12 concentram aproximadamente dois terços da importância. O prefixo <code>num__</code> vem do <code>ColumnTransformer</code>, evidência de que o pré-processamento está dentro do pipeline treinado.'
+                            },
+                            {
+                                src: 'img/pj2-3.png',
+                                alt: 'Gráfico de dispersão dos resíduos contra as previsões, com linha de erro zero',
+                                caption: '<strong>Análise de resíduos.</strong> O gráfico mais importante do painel. Até cerca de $250 mil os resíduos se apertam em torno do zero; acima disso abrem em leque, com desvios passando de $100 mil. É heterocedasticidade clássica, e é o que impede tratar a precisão do modelo como um número único.'
+                            }
+                        ]
+                    }
                 },
                 churn: {
                     title: 'Análise de Churn em Empresa de Telecomunicações',
                     image: 'img/pj3-1.png',
-                    description: 'Estudo aprofundado sobre os fatores que levam à evasão de clientes em uma empresa de telecomunicações, utilizando SQL para tratamento e análise de dados, e Power BI para visualização interativa dos resultados.',
+                    imageCaption: 'Primeira página: 1.869 clientes perdidos de uma base de 7.043 — 27% de churn. À esquerda, o perfil demográfico; à direita, a composição de serviços contratados.',
+                    description: 'Estudo sobre a evasão de clientes de uma operadora de telecomunicações: 7.043 clientes na base, 1.869 cancelamentos, 27% de churn. O trabalho começou no SQL, com limpeza e transformação da base, e terminou em um dashboard de duas páginas no Power BI — a primeira descreve quem é o cliente, a segunda mede a taxa de cancelamento variável por variável. A conclusão que orienta tudo é que o churn quase não se explica pela demografia: ele se explica por tipo de contrato, tempo de casa e presença de serviços de apoio.',
                     highlights: [
-                        '<strong>Diagnóstico de Vulnerabilidade:</strong> Detectei que a fase inicial do cliente é crítica, com quase 50% dos novos clientes cancelando o serviço.',
-                        '<strong>Contrato Mensal como Principal Fator de Risco:</strong> Clientes com contrato mensal cancelam quase 4 vezes mais que os de contrato anual e mais de 10 vezes mais que os de contrato bienal.',
-                        '<strong>Mapeamento de Pontos de Atrito:</strong> Clientes sem suporte técnico ou segurança online churnaram quase 3 vezes mais.',
-                        '<strong>Análise Contraintuitiva:</strong> Apesar de ser um serviço superior, a Fibra Óptica apresentou alta taxa de churn, apontando para investigações mais profundas sobre preço, estabilidade e perfil do cliente.',
-                        '<strong>Tradução de Dados em Ações:</strong> Consolidação das descobertas em um dashboard interativo para apoiar ações de retenção.'
+                        '<strong>A Demografia Quase Não Discrimina:</strong> a base é praticamente neutra nos cortes demográficos — gênero 50/50, 48% com parceiro contra 52% sem, 30% com dependentes, 16% de idosos. Nenhum desses cortes separa quem fica de quem sai, e foi exatamente isso que redirecionou a análise para contrato e serviço.',
+                        '<strong>Contrato Mensal é o Maior Fator de Risco:</strong> 43% de churn no mensal, contra 11% no anual e 3% no bienal — cerca de 4 vezes o anual e 14 vezes o bienal. É o corte com maior poder de separação em toda a base, e o mais acionável: migrar cliente de plano é uma alavanca que a empresa controla.',
+                        '<strong>O Risco Cai com o Tempo de Casa:</strong> clientes com até 12 meses cancelam a uma taxa de 47%, que desce para 26% entre 13 e 36 meses, 17% entre 37 e 60 e apenas 7% acima de 61 meses. Como 31% da base está justamente na faixa de 0 a 12 meses, o onboarding é onde o retorno de uma ação de retenção é maior.',
+                        '<strong>Serviços de Apoio Funcionam como Retenção:</strong> quem não tem suporte técnico cancela a 42%, contra 15% de quem tem — quase o triplo. O padrão se repete exatamente na segurança online: 42% sem, 15% com. São serviços adicionais que, na prática, operam como âncora de permanência.',
+                        '<strong>Resultado Contraintuitivo na Fibra Óptica:</strong> o serviço tecnicamente superior é o que mais perde cliente — 42% de churn, contra 19% no DSL e 7% em quem não contrata internet. A fibra é também o produto mais presente na base (3,10 mil clientes, 44%), o que transforma essa taxa no maior volume absoluto de perdas e levanta a hipótese de preço ou de instabilidade percebida.',
+                        '<strong>Pagamento Automático Retém:</strong> cheque eletrônico registra 45% de churn, contra 19% no cheque enviado, 17% na transferência bancária automática e 15% no cartão de crédito automático. A fricção mensal de um pagamento manual aparece nos números.',
+                        '<strong>Composição de Serviços Mapeada:</strong> 3.390 clientes sem múltiplas linhas, 2.971 com, e 682 sem serviço de telefone — a distribuição que permite estimar o volume por trás de cada taxa percentual.',
+                        '<strong>Da Descrição à Priorização:</strong> a primeira página responde "quem é a base" e a segunda "quem sai", separando composição de risco. Sem essa separação é fácil confundir o segmento grande com o segmento perigoso.'
                     ],
                     tools: ['SQL Server', 'Power BI'],
-                    challenge: 'A empresa enfrentava uma alta taxa de evasão de clientes, mas não possuía uma visão clara sobre quais fatores mais contribuíam para o problema.',
-                    solution: 'Utilizando SQL, realizei um processo completo de limpeza e transformação dos dados. Em seguida, quantifiquei o impacto de cada variável no churn e apresentei os resultados em um dashboard no Power BI.'
+                    challenge: 'A empresa enfrentava uma taxa de evasão alta — 27%, mais de um em cada quatro clientes — mas não tinha visão de quais fatores realmente contribuíam. O risco analítico aqui é confundir volume com risco: a fibra óptica, por exemplo, é o maior segmento da base e também o de maior taxa de cancelamento, e olhar só o número absoluto de perdas levaria a conclusões diferentes de olhar a taxa. Era preciso construir uma leitura que separasse as duas coisas e que descartasse explicitamente as hipóteses que não se sustentam, como as demográficas.',
+                    solution: 'Em SQL, fiz a limpeza e a transformação da base, padronizando as categorias e derivando as faixas de tempo de permanência. Em seguida calculei a taxa de cancelamento para cada corte — contrato, tempo de casa, tipo de internet, suporte técnico, segurança online e método de pagamento — sempre contra a taxa geral de 27% como referência. O resultado foi organizado em um dashboard de duas páginas: a primeira com o retrato da base e a composição dos serviços, a segunda isolando a taxa de churn por variável. A estrutura em duas páginas é deliberada, porque é ela que impede a confusão entre o segmento grande e o segmento que sai.',
+                    stats: [
+                        { value: '7.043', label: 'Clientes na base' },
+                        { value: '1.869', label: 'Clientes perdidos' },
+                        { value: '27%', label: 'Taxa de churn geral' },
+                        { value: '14x', label: 'Risco do mensal vs. bienal' }
+                    ],
+                    results: [
+                        {
+                            caption: 'Taxa de cancelamento por tipo de contrato. O corte com maior poder de separação em toda a base — e o mais fácil de acionar comercialmente.',
+                            headers: ['Tipo de contrato', 'Taxa de churn'],
+                            rows: [
+                                { cells: ['Mensal', '43%'], highlight: true },
+                                ['Anual', '11%'],
+                                ['Bienal', '3%']
+                            ]
+                        },
+                        {
+                            caption: 'Taxa de cancelamento por tempo de permanência, ao lado da participação de cada faixa na base. A faixa mais arriscada é também a mais populosa.',
+                            headers: ['Tempo de casa', 'Taxa de churn', '% da base'],
+                            rows: [
+                                { cells: ['0 a 12 meses', '47%', '31%'], highlight: true },
+                                ['13 a 36 meses', '26%', '26%'],
+                                ['37 a 60 meses', '17%', '23%'],
+                                ['61 meses ou mais', '7%', '20%']
+                            ],
+                            note: 'A coluna de taxa vem da segunda página do dashboard; a participação na base vem da primeira. São medidas diferentes e não devem ser somadas entre si.'
+                        },
+                        {
+                            caption: 'Taxa de cancelamento por serviço contratado e por forma de pagamento, na ordem em que aparecem no painel.',
+                            headers: ['Corte da base', 'Taxa de churn'],
+                            rows: [
+                                { cells: ['Cheque eletrônico', '45%'], highlight: true },
+                                ['Internet por fibra óptica', '42%'],
+                                ['Sem suporte técnico', '42%'],
+                                ['Sem segurança online', '42%'],
+                                ['Internet por DSL', '19%'],
+                                ['Cheque enviado', '19%'],
+                                ['Transferência bancária automática', '17%'],
+                                ['Com suporte técnico', '15%'],
+                                ['Com segurança online', '15%'],
+                                ['Cartão de crédito automático', '15%'],
+                                ['Sem serviço de internet', '7%']
+                            ],
+                            note: 'Todos os cortes acima de 27% estão puxando a taxa geral para cima; todos abaixo estão segurando.'
+                        }
+                    ],
+                    gallery: {
+                        title: 'Motivos de Perda, Quantificados',
+                        intro: 'A segunda página do dashboard isola a taxa de cancelamento variável por variável, para separar o que é apenas frequente do que é de fato arriscado.',
+                        items: [
+                            {
+                                src: 'img/pj3-2.png',
+                                alt: 'Dashboard com a taxa de perda de clientes por tipo de contrato, suporte técnico, tempo de permanência, tipo de internet, segurança online e método de pagamento',
+                                caption: '<strong>Taxa de churn por variável.</strong> Contrato mensal perde 43% dos clientes, contra 11% no anual e 3% no bienal. Clientes com até 12 meses cancelam a 47%, taxa que cai para 7% acima de 61 meses. A ausência de suporte técnico ou de segurança online eleva a taxa de 15% para 42%, e a fibra óptica — o serviço superior — aparece com 42%, o resultado contraintuitivo que abriu a investigação sobre preço e estabilidade.'
+                            }
+                        ]
+                    }
                 },
                 acidentes_prf: {
-                    title: 'Análise de Acidentes de Trânsito (PRF)',
+                    title: 'Análise de Acidentes nas Rodovias Federais (PRF)',
                     image: 'img/pj4.png',
-                    description: 'Projeto de análise de dados abertos da Polícia Rodoviária Federal, focado em identificar padrões, causas e estatísticas de acidentes nas rodovias federais.',
+                    imageCaption: 'O painel completo: 491 mil acidentes decompostos por gravidade, mês, tipo de pista, tipo de acidente e veículo envolvido. O filtro de mês, no canto superior direito, recalcula todos os visuais.',
+                    description: 'Dashboard construído sobre os dados abertos da Polícia Rodoviária Federal, cobrindo 491 mil acidentes em rodovias federais. O painel parte da pirâmide de gravidade — 200 mil ilesos, 170 mil com ferimento leve, 63 mil com ferimento grave e 26 mil óbitos — e desce até o detalhe operacional: tipo de pista, tipo de acidente, veículo envolvido e distribuição ao longo dos meses. A pergunta que orienta a leitura não é apenas quantos acidentes acontecem, mas onde fiscalização e engenharia de tráfego têm mais retorno — separando o que é frequente do que é grave.',
                     highlights: [
-                        '<strong>Visualização Geográfica:</strong> Identificação das rodovias e estados com maior incidência de acidentes.',
-                        '<strong>Análise Temporal:</strong> Padrões de acidentes por dia da semana e hora, auxiliando na alocação de recursos de fiscalização.',
-                        '<strong>Fatores Contribuintes:</strong> Análise das principais causas de acidentes.',
-                        '<strong>Interatividade:</strong> Dashboard interativo no Power BI, permitindo drill-down e filtros dinâmicos.'
+                        '<strong>Pirâmide de Gravidade em Primeiro Plano:</strong> os cinco indicadores do topo abrem o painel pelo que importa — 491 mil acidentes, 200 mil pessoas ilesas, 170 mil com ferimento leve, 63 mil com ferimento grave e 26 mil óbitos. A escala do problema fica legível antes de qualquer gráfico.',
+                        '<strong>Pista Simples Concentra 53% dos Acidentes:</strong> contra 38% em pista dupla e 9% em múltipla. O tipo de via mais barato de construir é também o que aparece com mais frequência nos registros — um argumento direto para priorização de duplicação.',
+                        '<strong>Ranking de 17 Tipos de Acidente:</strong> colisão traseira (71 mil), tombamento (70 mil), queda de ocupante de veículo (66 mil) e saída de leito carroçável (61 mil) lideram. Colisão frontal aparece apenas em oitavo (33 mil), e atropelamento de pedestre em décimo (15 mil).',
+                        '<strong>Automóvel e Motocicleta Dominam o Envolvimento:</strong> 179 mil e 107 mil registros respectivamente. Logo atrás vêm caminhonete (45 mil), caminhão-trator (39 mil), caminhão (30 mil) e ônibus (27 mil) — o peso do transporte de carga e de passageiros no total.',
+                        '<strong>Classificação por Vítimas:</strong> 370 mil acidentes com vítimas feridas, 77 mil com vítimas fatais e 45 mil sem vítimas. É um corte diferente dos indicadores de gravidade do topo, que contam pessoas em vez de acidentes.',
+                        '<strong>Sazonalidade Visível:</strong> a série mensal de acidentes oscila entre cerca de 43 mil e 52 mil, com agosto no topo, enquanto a linha de óbitos sai do vale de fevereiro e março e sobe até o meio do ano — informação útil para escalonar efetivo.',
+                        '<strong>Filtro de Mês em Todo o Painel:</strong> a segmentação recalcula os cinco indicadores e os cinco visuais de uma vez, permitindo comparar meses sem sair da mesma tela.',
+                        '<strong>Tratamento dos Dados Abertos Brutos:</strong> os arquivos da PRF chegam com categorias inconsistentes e campos vazios. O pipeline padroniza as classificações antes da modelagem, o que é o que permite que os totais dos visuais fechem entre si.'
                     ],
                     tools: ['Power BI', 'ETL', 'Modelagem de Dados'],
-                    challenge: 'A principal dificuldade foi tratar o grande volume de dados abertos brutos, garantindo qualidade e consistência para a análise.',
-                    solution: 'Implementação de um pipeline de limpeza de dados e modelagem robusta no Power BI, transformando dados brutos em insights claros e acionáveis para segurança rodoviária.'
+                    challenge: 'Dados abertos governamentais chegam volumosos e irregulares: as mesmas categorias aparecem escritas de formas diferentes, há campos vazios e classificações que se sobrepõem — tipo de acidente, tipo de pista, gravidade da vítima e tipo de veículo são dimensões independentes que precisam ser cruzadas sem duplicar a contagem. O desafio foi transformar esse material em um painel que aguente ser filtrado sem produzir números contraditórios, e que apresente 491 mil registros de forma que um gestor consiga priorizar em poucos segundos.',
+                    solution: 'A base passou por um pipeline de limpeza e padronização das categorias, seguido de um modelo de dados no Power BI que separa as dimensões de classificação da tabela de fatos. Sobre esse modelo foram construídos cinco indicadores de gravidade e cinco visuais complementares — série mensal de acidentes contra óbitos, distribuição por tipo de pista, ranking dos 17 tipos de acidente, ranking dos veículos envolvidos e classificação por presença de vítimas — todos reagindo ao mesmo filtro de mês. A ordem de leitura foi desenhada de propósito: escala primeiro, causa depois, detalhe por último.',
+                    stats: [
+                        { value: '491 mil', label: 'Acidentes analisados' },
+                        { value: '26 mil', label: 'Óbitos registrados' },
+                        { value: '17', label: 'Tipos de acidente catalogados' },
+                        { value: '53%', label: 'Dos acidentes em pista simples' }
+                    ],
+                    results: [
+                        {
+                            caption: 'Acidentes por tipo, em ordem de frequência. Os quatro primeiros tipos concentram quase metade dos registros.',
+                            headers: ['Tipo de acidente', 'Acidentes'],
+                            rows: [
+                                { cells: ['Colisão traseira', '71 mil'], highlight: true },
+                                ['Tombamento', '70 mil'],
+                                ['Queda de ocupante de veículo', '66 mil'],
+                                ['Saída de leito carroçável', '61 mil'],
+                                ['Colisão transversal', '39 mil'],
+                                ['Colisão com objeto', '38 mil'],
+                                ['Colisão lateral mesmo sentido', '35 mil'],
+                                ['Colisão frontal', '33 mil'],
+                                ['Capotamento', '24 mil'],
+                                ['Atropelamento de pedestre', '15 mil']
+                            ],
+                            note: 'A lista completa do painel tem 17 tipos, até eventos atípicos (1 mil) e sinistro pessoal de trânsito.'
+                        },
+                        {
+                            caption: 'Veículos envolvidos nos acidentes. Um mesmo acidente pode envolver mais de um tipo de veículo, então a soma não corresponde ao total de acidentes.',
+                            headers: ['Tipo de veículo', 'Acidentes'],
+                            rows: [
+                                { cells: ['Automóvel', '179 mil'], highlight: true },
+                                ['Motocicleta', '107 mil'],
+                                ['Caminhonete', '45 mil'],
+                                ['Caminhão-trator', '39 mil'],
+                                ['Caminhão', '30 mil'],
+                                ['Ônibus', '27 mil'],
+                                ['Não informado', '18 mil'],
+                                ['Camioneta', '13 mil']
+                            ]
+                        }
+                    ]
                 }
             };
 
-            AOS.init({ duration: 700, once: true, offset: 50 });
+            const semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-            new Typed('#typed-text', {
-                strings: ['Analista de Dados', 'Machine Learning', 'Business Intelligence', 'Séries Temporais'],
-                typeSpeed: 50,
-                backSpeed: 25,
-                backDelay: 2000,
-                loop: true,
-                smartBackspace: true
+            /* ---------- Revelação por rolagem ---------- */
+            AOS.init({
+                duration: 650,
+                once: true,
+                offset: 60,
+                easing: 'ease-out-cubic',
+                disable: () => semMovimento
             });
+
+            /* ---------- Papéis digitados no hero ---------- */
+            const papeis = ['Analista de Dados', 'Machine Learning', 'Business Intelligence', 'Séries Temporais'];
+            if (semMovimento) {
+                document.getElementById('typed-text').textContent = papeis.join(' · ');
+            } else {
+                new Typed('#typed-text', {
+                    strings: papeis,
+                    typeSpeed: 50,
+                    backSpeed: 25,
+                    backDelay: 2000,
+                    loop: true,
+                    smartBackspace: true
+                });
+            }
 
             document.getElementById('current-year').textContent = new Date().getFullYear();
 
+            /* ---------- Menu mobile ---------- */
             const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-            mobileMenu.addEventListener('click', (e) => {
-                if (e.target.tagName === 'A') mobileMenu.classList.add('hidden');
+            const mobileMenu = document.getElementById('menu-mobile');
+
+            function fecharMenu() {
+                mobileMenu.classList.remove('aberto');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                mobileMenuButton.setAttribute('aria-label', 'Abrir menu');
+            }
+
+            mobileMenuButton.addEventListener('click', () => {
+                const aberto = mobileMenu.classList.toggle('aberto');
+                mobileMenuButton.setAttribute('aria-expanded', String(aberto));
+                mobileMenuButton.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
             });
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target.closest('a')) fecharMenu();
+            });
+
+            /* ---------- Cabeçalho, progresso de rolagem e voltar ao topo ---------- */
+            const cabecalho = document.querySelector('.cabecalho');
+            const barraProgresso = document.getElementById('progresso-rolagem');
+            const voltarTopo = document.getElementById('voltar-topo');
+            let rolagemAgendada = false;
+
+            function aoRolar() {
+                const y = window.scrollY;
+                const rolavel = document.documentElement.scrollHeight - window.innerHeight;
+                barraProgresso.style.transform = `scaleX(${rolavel > 0 ? Math.min(y / rolavel, 1) : 0})`;
+                cabecalho.classList.toggle('rolado', y > 12);
+                voltarTopo.classList.toggle('visivel', y > 600);
+                rolagemAgendada = false;
+            }
+
+            window.addEventListener('scroll', () => {
+                if (!rolagemAgendada) {
+                    rolagemAgendada = true;
+                    requestAnimationFrame(aoRolar);
+                }
+            }, { passive: true });
+            aoRolar();
+
+            voltarTopo.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: semMovimento ? 'auto' : 'smooth' });
+            });
+
+            /* ---------- Link ativo na navegação ---------- */
+            const secoes = document.querySelectorAll('main section[id]');
+            const linksNav = document.querySelectorAll('.nav-link, .nav-mobile-link');
+
+            const observador = new IntersectionObserver((entradas) => {
+                entradas.forEach((entrada) => {
+                    if (!entrada.isIntersecting) return;
+                    const alvo = '#' + entrada.target.id;
+                    linksNav.forEach(l => l.classList.toggle('ativo', l.getAttribute('href') === alvo));
+                });
+            }, { rootMargin: '-45% 0px -50% 0px' });
+            secoes.forEach(s => observador.observe(s));
+
+            /* ---------- Halo dos cards seguindo o cursor ---------- */
+            if (!semMovimento && window.matchMedia('(pointer: fine)').matches) {
+                document.querySelectorAll('.project-card').forEach(card => {
+                    card.addEventListener('pointermove', (e) => {
+                        const r = card.getBoundingClientRect();
+                        card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+                        card.style.setProperty('--my', `${e.clientY - r.top}px`);
+                    });
+                });
+            }
 
             const modal = document.getElementById('project-modal');
             const modalContent = document.getElementById('modal-content');
 
-            function openModal(details) {
-                modalContent.innerHTML = `
-                    <div class="p-4 sm:p-8">
-                        <div class="flex justify-between items-start mb-6">
-                            <h1 class="text-2xl sm:text-3xl font-bold text-highlight pr-4">${details.title}</h1>
-                            <button id="close-modal-button" class="text-3xl font-light text-secondary hover:text-white" aria-label="Fechar modal">&times;</button>
-                        </div>
-                        <p class="text-secondary mb-6">${details.description}</p>
-                        <img src="${details.image}" alt="Imagem do projeto" class="w-full rounded-lg mb-8 border-2 border-custom">
+            const sectionTitle = (text) => `<h2 class="text-xl font-bold text-white border-l-4 border-highlight pl-4 mb-4">${text}</h2>`;
+
+            function figure(fig) {
+                if (!fig || !fig.src) return '';
+                return `
+                    <figure class="project-figure">
+                        <img src="${fig.src}" alt="${fig.alt || ''}" loading="lazy" class="w-full rounded-lg border-2 border-custom">
+                        ${fig.caption ? `<figcaption>${fig.caption}</figcaption>` : ''}
+                    </figure>`;
+            }
+
+            function renderHighlights(highlights) {
+                return `
+                    <div class="mt-10">
+                        ${sectionTitle('Destaques')}
+                        <ul class="list-disc list-inside text-secondary space-y-2 highlights-columns">${highlights.map(i => `<li>${i}</li>`).join('')}</ul>
+                    </div>`;
+            }
+
+            function renderChallenge(details) {
+                return `
+                    <div class="mt-10">
+                        ${sectionTitle('Desafio e Solução')}
                         <div class="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h2 class="text-xl font-bold text-white border-l-4 border-highlight pl-4 mb-4">Destaques</h2>
-                                <ul class="list-disc list-inside text-secondary space-y-2">${details.highlights.map(i => `<li>${i}</li>`).join('')}</ul>
-                            </div>
-                            <div>
-                                <h2 class="text-xl font-bold text-white border-l-4 border-highlight pl-4 mb-4">Ferramentas</h2>
-                                <div class="flex flex-wrap gap-2 mb-6">${details.tools.map(t => `<span class="skill-tag px-3 py-1 text-sm">${t}</span>`).join('')}</div>
-                                <h2 class="text-xl font-bold text-white border-l-4 border-highlight pl-4 mb-4">Desafio e Solução</h2>
-                                <p class="text-secondary"><strong>Desafio:</strong> ${details.challenge}</p>
-                                <p class="text-secondary mt-2"><strong>Solução:</strong> ${details.solution}</p>
-                            </div>
+                            <p class="text-secondary"><strong class="text-white">Desafio:</strong> ${details.challenge}</p>
+                            <p class="text-secondary"><strong class="text-white">Solução:</strong> ${details.solution}</p>
+                        </div>
+                        ${details.solutionFigure ? `<div class="mt-6">${figure(details.solutionFigure)}</div>` : ''}
+                    </div>`;
+            }
+
+            function renderGallery(gallery) {
+                if (!gallery || !gallery.items || !gallery.items.length) return '';
+                return `
+                    <div class="mt-10">
+                        ${sectionTitle(gallery.title)}
+                        ${gallery.intro ? `<p class="text-secondary text-sm mb-5">${gallery.intro}</p>` : ''}
+                        <div class="space-y-8">${gallery.items.map(item => figure(item)).join('')}</div>
+                    </div>`;
+            }
+
+            function renderResults(details) {
+                const results = details.results;
+                if (!results || !results.length) return '';
+                const table = (t) => `
+                    <div class="mb-8 last:mb-0">
+                        <p class="text-secondary text-sm mb-3">${t.caption}</p>
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead><tr>${t.headers.map(h => `<th scope="col">${h}</th>`).join('')}</tr></thead>
+                                <tbody>${t.rows.map(row => {
+                                    const cells = Array.isArray(row) ? row : row.cells;
+                                    const cls = (!Array.isArray(row) && row.highlight) ? ' class="row-total"' : '';
+                                    return `<tr${cls}><th scope="row">${cells[0]}</th>${cells.slice(1).map(c => `<td>${c}</td>`).join('')}</tr>`;
+                                }).join('')}</tbody>
+                            </table>
+                        </div>
+                        ${t.note ? `<p class="text-secondary text-xs mt-2">${t.note}</p>` : ''}
+                    </div>`;
+                return `
+                    <div class="mt-10">
+                        ${sectionTitle('Resultados')}
+                        ${results.map(table).join('')}
+                        ${details.resultsFigure ? `<div class="mt-2">${figure(details.resultsFigure)}</div>` : ''}
+                    </div>`;
+            }
+
+            function renderStats(stats) {
+                if (!stats || !stats.length) return '';
+                return `
+                    <div class="mt-10">
+                        ${sectionTitle('Escala do Projeto')}
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                            ${stats.map(s => `<div class="stat-card"><p class="stat-value">${s.value}</p><p class="stat-label">${s.label}</p></div>`).join('')}
                         </div>
                     </div>`;
+            }
+
+            function renderNotes(notes) {
+                if (!notes || !notes.items || !notes.items.length) return '';
+                return `
+                    <div class="mt-10">
+                        ${sectionTitle(notes.title)}
+                        ${notes.intro ? `<p class="text-secondary text-sm mb-4">${notes.intro}</p>` : ''}
+                        <ol class="list-decimal list-inside text-secondary space-y-3">${notes.items.map(i => `<li>${i}</li>`).join('')}</ol>
+                    </div>`;
+            }
+
+            function renderFooter(details) {
+                return `
+                    <div class="mt-10 pt-8 border-t border-custom">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-xs font-bold text-white uppercase tracking-widest mb-3">Ferramentas</h3>
+                                <div class="flex flex-wrap gap-2">${details.tools.map(t => `<span class="skill-tag px-3 py-1 rounded-full text-sm">${t}</span>`).join('')}</div>
+                            </div>
+                            ${details.sources ? `
+                                <div>
+                                    <h3 class="text-xs font-bold text-white uppercase tracking-widest mb-3">Fontes de dados</h3>
+                                    <div class="flex flex-col items-start gap-1 text-sm">
+                                        ${details.sources.map(s => `<a href="${s.url}" target="_blank" rel="noopener noreferrer" class="link-interaction text-secondary">${s.name}</a>`).join('')}
+                                    </div>
+                                </div>` : ''}
+                        </div>
+                        ${details.repo ? `
+                            <div class="mt-8 flex flex-wrap items-center gap-4">
+                                <a href="${details.repo.url}" target="_blank" rel="noopener noreferrer" class="button-main inline-flex items-center gap-2 py-2 px-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.4 1.24-3.24-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.24a11.5 11.5 0 0 1 6.01 0c2.29-1.56 3.3-1.24 3.3-1.24.66 1.65.25 2.87.12 3.17.77.84 1.24 1.92 1.24 3.24 0 4.63-2.81 5.65-5.49 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58C20.56 22.3 24 17.8 24 12.5 24 5.87 18.63.5 12 .5z"/></svg>
+                                    ${details.repo.label}
+                                </a>
+                                ${details.license ? `<span class="text-secondary text-xs">Licença ${details.license}</span>` : ''}
+                            </div>` : ''}
+                    </div>`;
+            }
+
+            let gatilhoAnterior = null;
+
+            function openModal(details, gatilho) {
+                gatilhoAnterior = gatilho || null;
+                modalContent.innerHTML = `
+                    <div class="p-5 sm:p-8">
+                        <div class="flex justify-between items-start gap-4 mb-6">
+                            <h2 id="modal-titulo" class="text-2xl sm:text-3xl font-bold text-highlight">${details.title}</h2>
+                            <button type="button" id="close-modal-button" class="botao-icone flex-shrink-0" aria-label="Fechar detalhes do projeto">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                            </button>
+                        </div>
+                        <p class="text-secondary mb-8 text-lg leading-relaxed">${details.description}</p>
+                        ${figure({ src: details.image, alt: `Imagem do projeto ${details.title}`, caption: details.imageCaption })}
+                        ${renderHighlights(details.highlights)}
+                        ${renderChallenge(details)}
+                        ${renderGallery(details.gallery)}
+                        ${renderResults(details)}
+                        ${renderStats(details.stats)}
+                        ${renderNotes(details.notes)}
+                        ${renderFooter(details)}
+                    </div>`;
                 modal.classList.remove('invisible', 'opacity-0');
+                modalContent.classList.remove('scale-95');
                 document.body.style.overflow = 'hidden';
-                document.getElementById('close-modal-button').addEventListener('click', closeModal);
+                modalContent.scrollTop = 0;
+
+                const botaoFechar = document.getElementById('close-modal-button');
+                botaoFechar.addEventListener('click', closeModal);
+                botaoFechar.focus();
             }
 
             function closeModal() {
                 modal.classList.add('invisible', 'opacity-0');
-                document.body.style.overflow = 'auto';
+                modalContent.classList.add('scale-95');
+                document.body.style.overflow = '';
+                if (gatilhoAnterior) {
+                    gatilhoAnterior.focus();
+                    gatilhoAnterior = null;
+                }
             }
+
+            const modalAberto = () => !modal.classList.contains('invisible');
 
             document.querySelectorAll('.project-card').forEach(card => {
                 card.addEventListener('click', () => {
                     const details = projectDetails[card.dataset.projectId];
-                    if (details) openModal(details);
+                    /* O foco volta sempre para o botão do card: o <article> não é focável. */
+                    if (details) openModal(details, card.querySelector('.project-card__cta'));
                 });
             });
 
@@ -321,40 +1037,103 @@
                 if (e.target === modal) closeModal();
             });
 
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && !modal.classList.contains('invisible')) closeModal();
+            /* Mantém o foco preso dentro do modal enquanto ele estiver aberto. */
+            modal.addEventListener('keydown', (e) => {
+                if (e.key !== 'Tab') return;
+                const focaveis = modalContent.querySelectorAll('a[href], button');
+                if (!focaveis.length) return;
+                const primeiro = focaveis[0];
+                const ultimo = focaveis[focaveis.length - 1];
+                if (e.shiftKey && document.activeElement === primeiro) {
+                    e.preventDefault();
+                    ultimo.focus();
+                } else if (!e.shiftKey && document.activeElement === ultimo) {
+                    e.preventDefault();
+                    primeiro.focus();
+                }
             });
 
+            /* ---------- Copiar e-mail ---------- */
             const copyEmailButton = document.getElementById('copy-email-button');
             const emailTextSpan = document.getElementById('email-text');
+            const emailOriginal = copyEmailButton.dataset.email;
+
             copyEmailButton.addEventListener('click', () => {
-                const email = copyEmailButton.dataset.email;
-                navigator.clipboard.writeText(email).then(() => {
-                    emailTextSpan.textContent = 'Email copiado!';
-                    emailTextSpan.className = 'text-success';
+                navigator.clipboard.writeText(emailOriginal).then(() => {
+                    emailTextSpan.textContent = 'E-mail copiado!';
+                    emailTextSpan.className = 'valor text-success';
                 }).catch(() => {
-                    emailTextSpan.textContent = 'Erro ao copiar';
-                    emailTextSpan.className = 'text-error';
+                    emailTextSpan.textContent = 'Não foi possível copiar';
+                    emailTextSpan.className = 'valor text-error';
                 }).finally(() => {
                     setTimeout(() => {
-                        emailTextSpan.textContent = email;
-                        emailTextSpan.className = '';
+                        emailTextSpan.textContent = emailOriginal;
+                        emailTextSpan.className = 'valor';
                     }, 2000);
                 });
             });
 
+            /* ---------- Seletor de tema (persistido) ---------- */
+            const botaoPaleta = document.getElementById('botao-paleta');
+            const paleta = document.getElementById('paleta');
             const themeButtons = document.querySelectorAll('.theme-switcher-button');
+
+            function fecharPaleta() {
+                paleta.classList.remove('aberta');
+                botaoPaleta.setAttribute('aria-expanded', 'false');
+            }
+
+            botaoPaleta.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const aberta = paleta.classList.toggle('aberta');
+                botaoPaleta.setAttribute('aria-expanded', String(aberta));
+            });
+
+            function aplicarTema(tema) {
+                document.documentElement.className =
+                    document.documentElement.className.replace(/theme-[\w-]+/g, '').trim();
+                if (tema !== 'theme-purpura') document.documentElement.classList.add(tema);
+
+                themeButtons.forEach(b => {
+                    const ativo = b.dataset.theme === tema;
+                    b.classList.toggle('active', ativo);
+                    b.setAttribute('aria-pressed', String(ativo));
+                });
+
+                const cor = getComputedStyle(document.documentElement)
+                    .getPropertyValue('--c-fundo-principal').trim();
+                const metaCor = document.querySelector('meta[name="theme-color"]');
+                if (cor && metaCor) metaCor.setAttribute('content', cor);
+            }
+
             themeButtons.forEach(button => {
                 button.addEventListener('click', () => {
-                    const theme = button.dataset.theme;
-                    document.body.className = document.body.className.replace(/theme-\w+/g, '').trim();
-                    if (theme !== 'theme-purpura') {
-                        document.body.classList.add(theme);
-                    }
-                    const activeButton = document.querySelector('.theme-switcher-button.active');
-                    if (activeButton) activeButton.classList.remove('active');
-                    button.classList.add('active');
+                    const tema = button.dataset.theme;
+                    aplicarTema(tema);
+                    try { localStorage.setItem('tema', tema); } catch (e) { /* sem persistência */ }
+                    fecharPaleta();
                 });
+            });
+
+            let temaSalvo = 'theme-purpura';
+            try { temaSalvo = localStorage.getItem('tema') || 'theme-purpura'; } catch (e) { /* padrão */ }
+            aplicarTema(temaSalvo);
+
+            /* ---------- Teclado e cliques globais ---------- */
+            document.addEventListener('click', (e) => {
+                if (paleta.classList.contains('aberta') && !e.target.closest('.seletor-tema')) fecharPaleta();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key !== 'Escape') return;
+                if (modalAberto()) closeModal();
+                else if (paleta.classList.contains('aberta')) {
+                    fecharPaleta();
+                    botaoPaleta.focus();
+                } else if (mobileMenu.classList.contains('aberto')) {
+                    fecharMenu();
+                    mobileMenuButton.focus();
+                }
             });
         });
     </script>
